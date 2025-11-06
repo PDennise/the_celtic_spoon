@@ -18,11 +18,14 @@ def register_view(request):
 
 
 def login_view(request):
-    form = AuthenticationForm()
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('home')
-    return render(request, 'accounts/login.html', {'form': form})
+    form = AuthenticationForm()                     # Create an empty login form for GET requests
+    if request.method == 'POST':                    # Check if the form has been submitted
+        form = AuthenticationForm(request, data=request.POST) # Bind POST data to the form
+        if form.is_valid():                         # Validate the form (check username and password)
+            user = form.get_user()                  # Get the authenticated user object
+            login(request, user)                    # Log the user in (start a session)
+            return redirect('home')                 # Redirect to the homepage after successful login
+    return render(request, 'accounts/login.html', {'form': form}) #  Render the login template with the form (empty or with errors)
+
+
+    
