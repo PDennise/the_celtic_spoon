@@ -28,4 +28,6 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'form': form}) #  Render the login template with the form (empty or with errors)
 
 
-    
+def logout_view(request):
+    logout(request)  # Log the user out (end the session)
+    return redirect('/')  # Redirect to the homepage after logout
