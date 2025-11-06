@@ -16,3 +16,13 @@ def register_view(request):
             messages.error(request, "Please correcr the errors below.")  
     return render(request, 'accounts/register.html', {'form' : form}) # Render the registration template with the form (either empty or with errors)
 
+
+def login_view(request):
+    form = AuthenticationForm()
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    return render(request, 'accounts/login.html', {'form': form})
