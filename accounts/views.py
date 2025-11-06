@@ -10,6 +10,9 @@ def register_view(request):
         if form.is_valid():                         # Validate the form data
             user = form.save()                      # Save the new user to the database
             login(request, user)                    # Log the user in immediately
-            return redirect('/')                    # Redirect to the homepage after successful registration
+            messages.success(request, "Account created successfully!")
+            return redirect('home')                    # Redirect to the homepage after successful registration
+        else:
+            messages.error(request, "Please correcr the errors below.")  
     return render(request, 'accounts/register.html', {'form' : form}) # Render the registration template with the form (either empty or with errors)
 
