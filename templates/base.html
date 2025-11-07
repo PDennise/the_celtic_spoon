@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> The Celtic Spoon </title>
+</head>
+
+<body>
+    <!-- Navbar section: visible on every page -->
+    <nav>
+        {% if user.is_authenticated %} <!-- Check if the user is logged in -->
+        <a href="{% url 'logout' %}">Logout</a> <!-- Show logout link if logged in -->
+        {% else %}
+        <a href="{% url 'login' %}">Login</a> <!-- Show login link if not logged in -->
+        <a href="{% url 'register' %}">Register</a> <!-- Show registration link -->
+        {% endif %}
+    </nav>
+
+    <hr> <!-- Horizontal line separating the navbar from page content -->
+
+    <!-- Content block: each page that extends base.html will insert its content here -->
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
