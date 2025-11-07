@@ -7,7 +7,7 @@ env/
 venv/
 ENV/
 *.sqlite3
-
+.env
 # VS Code
 .vscode/
 
@@ -16,3 +16,4 @@ ENV/
 
 # Static files
 /static/
+env.py
