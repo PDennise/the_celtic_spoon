@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('apps.accounts.urls')),
     path('', views.home_view, name='home'), # home page
+    path('restaurant/', include('apps.restaurant.urls')),
+
 ]
