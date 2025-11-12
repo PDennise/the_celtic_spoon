@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm # Built-in Django login form
 from .forms import ARegistrationForm      # Import your custom user registration form
 from django.contrib.auth import login, logout # Functions to log users in and out
 from django.contrib import messages         # Django's built-in messaging framework to show success or error messages to users
