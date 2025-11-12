@@ -20,6 +20,6 @@ from core import views # import for home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('apps.accounts.urls')),
     path('', views.home_view, name='home'), # home page
 ]
