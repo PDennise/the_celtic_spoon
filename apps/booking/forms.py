@@ -1,5 +1,5 @@
 from django import forms
-form .models import Booking
+from .models import Booking
 
 # Frontend form for users to make a booking
 class BookingForm(forms.ModelForm):
