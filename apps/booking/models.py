@@ -13,4 +13,4 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)    # Timestamp when the booking was created automatically
 
     def __str__(self):
-        return f"{self.customer.username} - {self.date} {self.time}"    # Human-readable representation of the booking
+        return f"{self.customer.username} - {self.date} {self.time}"    # Human-readable representation of the booking  
