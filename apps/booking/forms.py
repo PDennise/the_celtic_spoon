@@ -7,6 +7,8 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ['customer', 'date', 'time', 'number_of_guests']  # Fields user can fill
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date'}),   # HTML5 date picker
-            'time': forms.TimeInput(attrs={'type': 'time'}),   # HTML5 time picker
+            'customer': forms.TextInput(attrs={'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),   # HTML5 date picker
+            'time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),   # HTML5 time picker
+            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control'}),
         }
