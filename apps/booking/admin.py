@@ -9,7 +9,7 @@ class BookingAdminForm(forms.ModelForm):            # Custom form for Booking to
         fields = '__all__'
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}), # HTML data picker
-            'time': forms.TimeInput(attrs={'type': 'date'}), # HTML time piker
+            'time': forms.TimeInput(attrs={'type': 'time'}), # HTML time piker
 
         }
 
@@ -19,4 +19,4 @@ class BookingAdminForm(forms.ModelForm):            # Custom form for Booking to
         list_display = ('customer', 'date', 'time', 'number_of_guests', 'created_at' )      # Columns to display in admin list view
 
 
-admin.site.register(Booking) # Register Booking model with the custom admin configuration
+admin.site.register(Booking, BookingAdmin) # Register Booking model with the custom admin configuration
