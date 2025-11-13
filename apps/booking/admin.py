@@ -14,7 +14,7 @@ class BookingAdminForm(forms.ModelForm):            # Custom form for Booking to
         }
 
     
-    class BookingAdmin(admin.ModelAdmin):           # Admin configuration for Booking model
+class BookingAdmin(admin.ModelAdmin):           # Admin configuration for Booking model
         form = BookingAdminForm
         list_display = ('customer', 'date', 'time', 'number_of_guests', 'created_at' )      # Columns to display in admin list view
 
