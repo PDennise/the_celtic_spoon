@@ -14,6 +14,9 @@ def create_booking(request):
             booking = form.save(commit=False)
             booking.customer = request.user          # Automatically assign the logged-in user
             booking.save()                           # Now save to DB
+            # Success message
+            messages.success(request, "Your booking has been successfully created!")
+            
             return redirect('my_bookings')       # Redirect to user's bookings page
         
     else: 
