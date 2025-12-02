@@ -20,3 +20,9 @@ def create_booking(request):
         form = BookingForm(user=request.user)
     return render(request, 'booking/create_booking.html', {'form' : form})
 
+
+# View to list all bookings of the current user
+@login_required
+def my_bookings(request):
+    bookings = Booking.objects.filter(customer=request.user).order_by('-date', '-time')
+    return render(request, 'bookings/my_bookings.html', {'bookings': bookings})
