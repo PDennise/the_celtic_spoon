@@ -26,3 +26,13 @@ def create_booking(request):
 def my_bookings(request):
     bookings = Booking.objects.filter(customer=request.user).order_by('-date', '-time')
     return render(request, 'bookings/my_bookings.html', {'bookings': bookings})
+
+
+# View to cancel a booking
+@login_required
+def cancel_booking(request, booking_id):
+    # Get booking or return 404 if not found or not owned by user
+    booking = get_object_or_404(Booking, id=booking_id, customer=request.user)
+    booking.status = 'cancelled'  # Update status
+    booking.save()
+    return redirect('my_bookings')
