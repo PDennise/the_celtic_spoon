@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Booking model to store customer reservations
 class Booking(models.Model):
      # Choices for booking status
-     STATUS_CHOICES = (
+    STATUS_CHOICES = (
         ('pending', 'Pending Approval'),   # Booking created by the customer, waiting for staff approval
         ('approved', 'Approved'),          # Booking approved by staff
         ('declined', 'Declined'),          # Booking declined/rejected by staff
