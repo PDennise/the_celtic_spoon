@@ -37,9 +37,20 @@
                         <span class="badge bg-secondary">Cancelled</span>
                         {% endif %}
                     </td>
-                    
-                    {% if booking.status == "approved" or booking.status == "pending" %}
-                    <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm">
-                        Cancel
-                    </a>
-                    {% endif %}
+
+                    <!-- CANCEL BUTTON -->
+                    <td>
+                        {% if booking.status == "approved" or booking.status == "pending" %}
+                        <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm">
+                            Cancel
+                        </a>
+                        {% else %}
+                        <span class="text-muted">—</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
