@@ -27,7 +27,10 @@ def login_view(request):
         if form.is_valid():                         # Validate the form (check username and password)
             user = form.get_user()                  # Get the authenticated user object
             login(request, user)                    # Log the user in (start a session)
+            messages.success(request, "Logged in successfully!")  # add success message
             return redirect('/')                 # Redirect to the homepage after successful login
+        else:
+            messages.error(request, "Invalid username or password")  # add error message
     return render(request, 'accounts/login.html', {'form': form}) #  Render the login template with the form (empty or with errors)
 
 
