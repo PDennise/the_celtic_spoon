@@ -1,0 +1,6 @@
+{% if booking.status == "approved" or booking.status == "pending" %}
+    <a href="{% url 'cancel_booking' booking.id %}" 
+       class="btn btn-danger btn-sm">
+       Cancel
+    </a>
+{% endif %}
