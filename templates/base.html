@@ -21,8 +21,20 @@
     <hr> <!-- Horizontal line separating the navbar from page content -->
 
     <!-- Content block: each page that extends base.html will insert its content here -->
+     
     {% block content %}
     {% endblock %}
+
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 
 </body>
 
