@@ -29,6 +29,11 @@ class BookingForm(forms.ModelForm):
             raise forms.ValidationError("We cannot accommodate more than 20 guests per booking.")
         return guests
 
+    def clean_date(self):
+        date = self.cleaned_data.get('date')
+        if date < datetime.date.today():
+            raise ValidationError("You cannot select a past date.")
+        return date
     
     def clean(self):
         cleaned_data = super().clean()
