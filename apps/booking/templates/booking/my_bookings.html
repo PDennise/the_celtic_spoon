@@ -25,7 +25,19 @@
                     <td>{{ booking.time|time:"H:i" }}</td>
                     <td>{{ booking.number_of_guests }}</td>
 
-
+                    <!-- STATUS BADGES -->
+                    <td>
+                        {% if booking.status == "pending" %}
+                        <span class="badge bg-warning text-dark">Pending</span>
+                        {% elif booking.status == "approved" %}
+                        <span class="badge bg-success">Approved</span>
+                        {% elif booking.status == "declined" %}
+                        <span class="badge bg-danger">Declined</span>
+                        {% elif booking.status == "cancelled" %}
+                        <span class="badge bg-secondary">Cancelled</span>
+                        {% endif %}
+                    </td>
+                    
                     {% if booking.status == "approved" or booking.status == "pending" %}
                     <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm">
                         Cancel
