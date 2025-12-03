@@ -36,6 +36,12 @@ def my_bookings(request):
 def cancel_booking(request, booking_id):
     # Get booking or return 404 if not found or not owned by user
     booking = get_object_or_404(Booking, id=booking_id, customer=request.user)
-    booking.status = 'cancelled'  # Update status
-    booking.save()
+    
+    if booking.status in ['approved', 'pending']:
+        booking.status = 'cancelled'  # Update status
+        booking.save()
+        messages.success(request, "Your booking has been cancelled successfully.")
+    else:
+        messages.warning(request, "This booking cannot be cancelled.")
+
     return redirect('my_bookings')
