@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import Booking
-from datetime import time as datetime_time
+from datetime import date, time
 
 # Frontend form for users to make a booking
 class BookingForm(forms.ModelForm):
@@ -29,11 +29,44 @@ class BookingForm(forms.ModelForm):
             raise forms.ValidationError("We cannot accommodate more than 20 guests per booking.")
         return guests
 
+
+    def clean_time(self):
+        time_value = self.cleaned_data.get('time')
+        date_value = self.cleaned_data.get('date')
+        # Business hours restriction
+        opening_time = time(12, 0)
+        closing_time = time(22, 0)
+
+        if time_value < opening_time or time_value > closing_time:
+            raise forms.ValidationError(
+                f"We are only open from {opening_time.strftime('%H:%M')} to {closing_time.strftime('%H:%M')}."
+                )
+        
+        # Check capacity if date is provided
+        if date_value:
+            max_bookings_per_slot = 20
+            
+            existing_bookings = Booking.objects.filter(
+                date=date_value,
+                time=time_value
+            ).count()
+            
+            if existing_bookings >= max_bookings_per_slot:
+                raise forms.ValidationError(
+                    f"Sorry, {time_value.strftime('%H:%M')} on {date_value} is fully booked. "
+                    f"Please choose another time."
+                )
+        
+        return time_value
+
+
     def clean_date(self):
-        date = self.cleaned_data.get('date')
-        if date < datetime.date.today():
+        date_value = self.cleaned_data.get('date')
+        if date_value is None:
+            raise ValidationError("Please enter a valid date")
+        if date_value < date.today():
             raise ValidationError("You cannot select a past date.")
-        return date
+        return date_value
     
     def clean(self):
         cleaned_data = super().clean()
@@ -46,7 +79,7 @@ class BookingForm(forms.ModelForm):
                 raise ValidationError("You already have a booking at this date and time.")
 
             # Check business hours (example: 12:00 - 22:00)
-            if not (datetime_time(12, 0) <= booking_time <= datetime_time(22, 0)):
+            if not (time(12, 0) <= booking_time <= time(22, 0)):
                 raise ValidationError("Booking time must be between 12:00 and 22:00.")
 
         return cleaned_data
