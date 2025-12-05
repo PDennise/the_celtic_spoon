@@ -41,6 +41,24 @@ class BookingForm(forms.ModelForm):
         # Reorder fields to show: Date, Time, Number of Guests
         self.order_fields(['date', 'time', 'number_of_guests'])
 
+    
+    def save(self, commit=True):
+        """Override save to set the time field from cleaned_data"""
+        instance = super().save(commit=False)
+        
+        # Set time from cleaned_data (converted in clean_time())
+        if 'time' in self.cleaned_data:
+            instance.time = self.cleaned_data['time']
+        
+        # Set customer if available
+        if self.user:
+            instance.customer = self.user
+        
+        if commit:
+            instance.save()
+        
+        return instance
+
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
         if guests is None:
