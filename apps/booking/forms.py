@@ -43,9 +43,11 @@ class BookingForm(forms.ModelForm):
 
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
+        if guests is None:
+            raise forms.ValidationError("Please enter number of guests.")
         if guests < 1:
             raise forms.ValidationError("Number of guests must be at least 1.")
-        if guests > 20:  # Example capacity limit
+        if guests > 20:  
             raise forms.ValidationError("We cannot accommodate more than 20 guests per booking.")
         return guests
 
