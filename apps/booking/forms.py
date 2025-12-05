@@ -30,6 +30,13 @@ class BookingForm(forms.ModelForm):
                 time_display = f"{hour:02d}:{minute:02d}"
                 time_choices.append((time_str, time_display))
         
+        # Add time field as a ChoiceField (dropdown)
+        self.fields['time'] = forms.ChoiceField(
+            choices=time_choices,
+            widget=forms.Select(attrs={'class': 'form-control'}),
+            label="Time",
+            required=True
+        )
 
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
