@@ -12,9 +12,7 @@ def create_booking(request):
         form = BookingForm(request.POST, user=request.user)
         if form.is_valid():
             # Don't save to DB yet, we need to assign the customer
-            booking = form.save(commit=False)
-            booking.customer = request.user          # Automatically assign the logged-in user
-            booking.save()                           # Now save to DB
+            booking = form.save()
             # Success message
             messages.success(request, "Your booking has been successfully created!")
             
