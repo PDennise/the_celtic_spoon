@@ -57,6 +57,10 @@ class BookingForm(forms.ModelForm):
         time_str = self.cleaned_data.get('time')
         if not time_str:
             raise forms.ValidationError("Please select a time.")
+
+        # Convert string "HH:MM" to time object
+        hour, minute = map(int, time_str.split(':'))
+        time_value = time(hour, minute)
         
         # Business hours restriction
         opening_time = time(12, 0)
@@ -67,6 +71,7 @@ class BookingForm(forms.ModelForm):
                 f"We are only open from {opening_time.strftime('%H:%M')} to {closing_time.strftime('%H:%M')}."
                 )
         
+        return time_value
         # Check capacity if date is provided
         if date_value:
             max_bookings_per_slot = 20
