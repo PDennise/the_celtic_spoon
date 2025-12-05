@@ -73,6 +73,7 @@ class BookingForm(forms.ModelForm):
         
         return time_value
         # Check capacity if date is provided
+        date_value = self.cleaned_data.get('date')
         if date_value:
             max_bookings_per_slot = 20
             
