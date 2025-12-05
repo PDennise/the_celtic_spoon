@@ -38,6 +38,9 @@ class BookingForm(forms.ModelForm):
             required=True
         )
 
+        # Reorder fields to show: Date, Time, Number of Guests
+        self.order_fields(['date', 'time', 'number_of_guests'])
+
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
         if guests < 1:
