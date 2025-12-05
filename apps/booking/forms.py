@@ -7,7 +7,8 @@ from datetime import date, time
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['date', 'time', 'number_of_guests']  # Fields user can fill
+        # We'll add the 'time' field manually in __init__
+        fields = ['date', 'number_of_guests']  # Fields user can fill
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),   # HTML5 date picker
             'time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),   # HTML5 time picker
