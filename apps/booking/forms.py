@@ -21,6 +21,15 @@ class BookingForm(forms.ModelForm):
         self.user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
+        # Create time slots with 15-minute intervals
+        time_choices = []
+        # Generate times from 12:00 to 21:45 (restaurant hours)
+        for hour in range(12, 22):  # 12:00 to 21:45
+            for minute in (0, 15, 30, 45):
+                time_str = f"{hour:02d}:{minute:02d}"
+                time_display = f"{hour:02d}:{minute:02d}"
+                time_choices.append((time_str, time_display))
+        
 
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
