@@ -53,8 +53,11 @@ class BookingForm(forms.ModelForm):
 
 
     def clean_time(self):
-        time_value = self.cleaned_data.get('time')
-        date_value = self.cleaned_data.get('date')
+        """Convert time string from dropdown to time object"""
+        time_str = self.cleaned_data.get('time')
+        if not time_str:
+            raise forms.ValidationError("Please select a time.")
+        
         # Business hours restriction
         opening_time = time(12, 0)
         closing_time = time(22, 0)
