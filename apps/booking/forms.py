@@ -11,8 +11,19 @@ class BookingForm(forms.ModelForm):
         fields = ['date', 'number_of_guests']  # Fields user can fill
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),   # HTML5 date picker
-            'time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),   # HTML5 time picker
             'number_of_guests': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+
+        error_messages = {
+            # Custom error messages for the 'date' field
+            'date': {
+                'required': "Please select a date.",     # Shown when field is empty
+                'invalid': "Please enter a valid date.", # Shown when invalid input format is given
+            },
+            # Custom error messages for the 'number_of_guests' field
+            'number_of_guests': {
+                'required': "Please enter number of guests.",  # Shown when no value is provided
+            }
         }
 
 
