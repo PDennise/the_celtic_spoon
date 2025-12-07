@@ -11,6 +11,16 @@
                 
                 <form method="post" novalidate>
                     {% csrf_token %}
+                    
+                    <!-- Show general form errors -->
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
                     {% for field in form %}
                         <div class="mb-3">
                             {{ field.label_tag }}
