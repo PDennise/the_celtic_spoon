@@ -80,16 +80,6 @@ class BookingForm(forms.ModelForm):
         hour, minute = map(int, time_str.split(':'))
         time_value = time(hour, minute)
         
-        # Business hours restriction
-        opening_time = time(12, 0)
-        closing_time = time(22, 0)
-
-        if time_value < opening_time or time_value > closing_time:
-            raise forms.ValidationError(
-                f"We are only open from {opening_time.strftime('%H:%M')} to {closing_time.strftime('%H:%M')}."
-                )
-        
-        
         # Check capacity if date is provided
         date_value = self.cleaned_data.get('date')
         if date_value:
