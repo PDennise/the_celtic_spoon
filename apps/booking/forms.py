@@ -127,8 +127,4 @@ class BookingForm(forms.ModelForm):
             if Booking.objects.filter(customer=self.user, date=booking_date, time=booking_time).exists():
                 raise ValidationError("You already have a booking at this date and time.")
 
-            # Check business hours (example: 12:00 - 22:00)
-            if not (time(12, 0) <= booking_time <= time(22, 0)):
-                raise ValidationError("Booking time must be between 12:00 and 22:00.")
-
         return cleaned_data
