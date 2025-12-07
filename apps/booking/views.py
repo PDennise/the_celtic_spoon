@@ -15,8 +15,14 @@ def create_booking(request):
             booking = form.save()
             # Success message
             messages.success(request, "Your booking has been successfully created!")
-            
+        
             return redirect('my_bookings')       # Redirect to user's bookings page
+        
+        else:
+            # If form is not valid, display each field error using Django messages framework
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")          
         
     else: 
         form = BookingForm(user=request.user)
