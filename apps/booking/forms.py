@@ -89,7 +89,7 @@ class BookingForm(forms.ModelForm):
                 f"We are only open from {opening_time.strftime('%H:%M')} to {closing_time.strftime('%H:%M')}."
                 )
         
-        return time_value
+        
         # Check capacity if date is provided
         date_value = self.cleaned_data.get('date')
         if date_value:
