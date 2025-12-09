@@ -47,6 +47,10 @@
                         {% else %}
                         <span class="text-muted">—</span>
                         {% endif %}
+                        <!-- VIEW DETAILS BUTTON -->
+                        <a href="{% url 'booking_detail' booking.id %}" class="btn btn-primary btn-sm ms-2">
+                            View Details
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}
