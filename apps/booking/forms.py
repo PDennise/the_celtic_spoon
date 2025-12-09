@@ -8,7 +8,7 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         # We'll add the 'time' field manually in __init__
-        fields = ['date', 'number_of_guests']  # Fields user can fill
+        fields = ['date', 'number_of_guests', 'special_requests']  # Fields user can fill
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),   # HTML5 date picker
             'number_of_guests': forms.NumberInput(attrs={'class': 'form-control'}),
@@ -50,7 +50,7 @@ class BookingForm(forms.ModelForm):
         )
 
         # Reorder fields to show: Date, Time, Number of Guests
-        self.order_fields(['date', 'time', 'number_of_guests'])
+        self.order_fields(['date', 'time', 'number_of_guests', 'special_requests'])
 
     
     def save(self, commit=True):
