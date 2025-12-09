@@ -32,7 +32,7 @@
                     <p><strong>Date:</strong> {{ booking.date }}</p>
                     <p><strong>Time:</strong> {{ booking.time }}</p>
                     <p><strong>Guests:</strong> {{ booking.number_of_guests }}</p>
-
+                    <p><strong>Special Request:</strong> {{ booking.special_requests }}</p>
                     <hr>
 
                     {% if booking.customer == request.user %}
