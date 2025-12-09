@@ -38,9 +38,9 @@ def my_bookings(request):
 
 # View to cancel a booking
 @login_required
-def cancel_booking(request, booking_id):
+def cancel_booking(request, pk):
     # Get booking or return 404 if not found or not owned by user
-    booking = get_object_or_404(Booking, id=booking_id, customer=request.user)
+    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
     
     if booking.status in ['approved', 'pending']:
         booking.status = 'cancelled'  # Update status
@@ -50,3 +50,9 @@ def cancel_booking(request, booking_id):
         messages.warning(request, "This booking cannot be cancelled.")
 
     return redirect('my_bookings')
+
+# View to booking details
+@login_required
+def booking_detail(request, pk):
+    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
+    return render(request, 'booking/booking_detail.html', {'booking': booking})
