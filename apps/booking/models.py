@@ -12,14 +12,13 @@ class Booking(models.Model):
         ('declined', 'Declined'),          # Booking declined/rejected by staff
         ('cancelled', 'Cancelled'),        # Booking cancelled by customer or staff
     )
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
 
     customer = models.ForeignKey(User, on_delete=models.CASCADE) # Reference to the user who made the booking
     date = models.DateField()               # Date of the booking
     time = models.TimeField()               # Time of the booking
     number_of_guests = models.PositiveIntegerField() # Number of guests for the booking
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')  # Current status of the booking
-
+    special_requests = models.TextField(blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)    # Timestamp when the booking was created automatically
 
