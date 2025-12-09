@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Booking details{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Booking Details</h4>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Status Badge -->
+                    <div class="mb-4">
+                        <span class="badge 
+                            {% if booking.status == 'approved' %}bg-success
+                            {% elif booking.status == 'pending' %}bg-warning text-dark
+                            {% elif booking.status == 'cancelled' %}bg-danger
+                            {% else %}bg-secondary{% endif %} fs-6 p-2">
+                            {{ booking.get_status_display }}
+                        </span>
+                    </div>
+
+                <div class="card-body">
+                    <p><strong>Booking ID:</strong> #{{ booking.id }}</p>
+                    <p><strong>Date:</strong> {{ booking.date }}</p>
+                    <p><strong>Time:</strong> {{ booking.time }}</p>
+                    <p><strong>Guests:</strong> {{ booking.number_of_guests }}</p>
+
+                    <hr>
+
+                    {% if booking.customer == request.user %}
+                            <form method="post" action="{% url 'cancel_booking' booking.id %}">
+                                {% csrf_token %}
+                                <button class="btn btn-danger w-100" type="submit">
+                                    Cancel Booking
+                                </button>
+                            </form>
+                    {% endif %}
+                </div>
+
+                <div class="card-footer text-center">
+                    <a href="{% url 'my_bookings' %}" class="btn btn-secondary w-100">
+                        Back to My Bookings
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
