@@ -25,4 +25,5 @@ urlpatterns = [
     path('restaurant/', include('apps.restaurant.urls')),
     path('booking/', include('apps.booking.urls'),),
     path('staff/dashboard/', views.staff_dashboard, name='staff_dashboard'),
+    path('staff/booking/<int:booking_id>/approve/', views.approve_booking, name='approve_booking'),
 ]
