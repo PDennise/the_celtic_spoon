@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from .models import Booking
-from datetime import date, time
+from datetime import date, time, datetime
 
 # Frontend form for users to make a booking
 class BookingForm(forms.ModelForm):
@@ -124,6 +124,13 @@ class BookingForm(forms.ModelForm):
         booking_time = cleaned_data.get('time')
 
         if booking_date and booking_time and self.user:
+            # Combine date and time to a datetime object
+            booking_datetime = datetime.combine(booking_date, booking_time)
+            
+            # Check if the booking datetime is in the past
+            if booking_datetime < datetime.now():
+                raise ValidationError("You cannot book for a past date or time.")
+
             # Check if user already has a booking at this date and time
             if Booking.objects.filter(customer=self.user, date=booking_date, time=booking_time).exists():
                 raise ValidationError("You already have a booking at this date and time.")
