@@ -16,6 +16,7 @@ def staff_dashboard(request):
         'pending': bookings.filter(status='pending').count(),
         'approved': bookings.filter(status='approved').count(),
         'completed': bookings.filter(status='completed').count(),
+        'today': bookings.filter(date=today).count(),
     }
 
     context = {
