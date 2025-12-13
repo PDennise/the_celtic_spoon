@@ -7,8 +7,17 @@ from django.contrib import messages
 @user_passes_test(lambda u: u.is_staff)
 def staff_dashboard(request):
     bookings = Booking.objects.all().order_by('-date') # get all bookings
+
+    stats = {
+        'total': bookings.count(),
+        'pending': bookings.filter(status='pending').count(),
+        'approved': bookings.filter(status='approved').count(),
+        'completed': bookings.filter(status='completed').count(),
+    }
+
     context = {
-        'bookings': bookings
+        'bookings': bookings,
+        'stats': stats,
     }
 
     return render(request, 'staff_dashboard.html', context)
