@@ -1,1 +1,1 @@
-web: gunicorn the_celtic_spoon.wsgi
+web: gunicorn core.wsgi
