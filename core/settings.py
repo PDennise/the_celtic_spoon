@@ -153,7 +153,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"  # Required for Heroku deployment
 STORAGES = {
     # ...
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
