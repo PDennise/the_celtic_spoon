@@ -13,7 +13,5 @@ ENV/
 
 # macOS
 .DS_Store
-
-# Static files
-/static/
-env.py
+.env.local
+.env.production
