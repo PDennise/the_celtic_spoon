@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1', 
     '0.0.0.0', 
-    '.heroku.app.com', 
+    '.herokuapp.com', 
     'the-celtic-spoon-fd61489fc4df.herokuapp.com'
     ]
 
