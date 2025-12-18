@@ -13,7 +13,6 @@ ENV/
 
 # macOS
 .DS_Store
-.env.local
 .env.production
 
 /staticfiles/
