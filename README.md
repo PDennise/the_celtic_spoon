@@ -407,3 +407,50 @@ The Celtic Spoon booking system includes a plan for testing core functionality, 
 
 - Edge cases for booking conflicts and table capacity should be checked
 - Email confirmation functionality will be tested in development environment
+
+---
+
+## 10. Deployment
+
+The Celtic Spoon project can be deployed to a cloud platform or run locally for development.
+
+---
+
+### Local Development
+
+1. Clone the repository:  
+```bash
+   git clone https://github.com/PDennise/the_celtic_spoon.git
+```
+  
+2. Navigate to the project folder:
+```bash
+  cd celtic-spoon
+```
+
+3. Set up Python environment:
+```bash
+  python -m venv venv
+  source venv/bin/activate   # Linux / macOS
+  venv\Scripts\activate      # Windows
+```
+
+4. Install backend dependencies:
+```bash
+  pip install -r requirements.txt
+```
+
+5. Set up environment variables (if any):
+```bash
+  cp .env.example .env
+```
+
+6. Apply Django migrations:
+```bash
+  python manage.py migrate
+```
+
+7. Start development servers:
+```bash
+  python manage.py runserver   # Django backend
+```
