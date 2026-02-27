@@ -294,3 +294,42 @@ The Celtic Spoon booking system provides a reservation management system with ro
 - Only confirmed bookings can be marked as completed
 - Cancelled reservations remain stored for record keeping
 
+---
+
+## 7. Security Features
+
+The Celtic Spoon booking system implements essential security measures using Django’s built-in protections and best practices.
+
+---
+
+### Authentication & Authorization
+
+- Secure user authentication using Django’s built-in authentication system.
+- Role-based access control (customer / staff / admin).
+- Restricted access to admin-only pages and actions.
+- Users can only view and manage their own reservations.
+
+---
+
+### Data Protection
+
+- Passwords are securely stored using Django’s password hashing system.
+- Sensitive actions require authenticated sessions.
+- Session management handled securely by Django.
+
+---
+
+### Form & Input Validation
+
+- Server-side validation for all forms.
+- Email format validation.
+- Password strength requirements.
+- Protection against invalid or malicious input.
+
+---
+
+### Built-in Django Security Features
+
+- CSRF protection enabled by default.
+- Protection against SQL injection through Django ORM.
+- XSS protection via Django template escaping.
