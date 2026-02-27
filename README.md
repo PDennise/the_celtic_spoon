@@ -193,6 +193,44 @@ Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
 
 ---
 
+## 4. Design & Wireframes
+
+The Celtic Spoon website was designed with a **minimalist and user-friendly approach**, focusing on easy navigation and clear presentation of menu items, reservations, and restaurant information.
+
+---
+
+### Wireframes
+
+- **Homepage:** highlights featured dishes, restaurant ambiance, and navigation links  
+- **Menu Page:** displays categories, items, and signature dishes  
+- **Reservation Page:** form for table booking with date, time, guests, and special requests  
+- **Dashboard (Customer):** view upcoming/past bookings and manage reservations  
+- **Dashboard (Staff/Admin):** view all reservations, confirm/decline bookings, manage tables
+
+---
+
+### Design Notes
+
+- Clean layout with responsive design for mobile and desktop  
+- Consistent color palette and typography to reflect the Celtic theme  
+- Buttons and forms are easily accessible and clearly labeled  
+- Visual hierarchy emphasizes key content such as specials and booking call-to-action
+
+---
+
+### Assets / Wireframe Images
+
+- Placeholder for wireframe images:
+  - ![Homepage Wireframe](docs/homepage-wireframe.png)  
+  - ![Menu Page Wireframe](docs/menu-wireframe.png)  
+  - ![Reservation Page Wireframe](docs/reservation-wireframe.png)  
+  - ![Customer Dashboard Wireframe](docs/customer-dashboard-wireframe.png)  
+  - ![Staff/Admin Dashboard Wireframe](docs/admin-dashboard-wireframe.png)
+
+> Note: Actual wireframe images can be added to the `docs/` folder. These placeholders ensure links work and images can be included later.
+
+---
+
 ## 5. Database Schema
 
 The database is designed using Django ORM and follows a relational structure to support authentication, reservations, and restaurant capacity management.
