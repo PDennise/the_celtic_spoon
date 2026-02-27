@@ -8,16 +8,16 @@
 ## Table of Contents 
 
 1. [Project Overview](#1-project-overview)
-2. [Live Preview](#live-preview)
-3. [UX & User Stories](#ux--user-stories)
-4. [Design & Wireframes](#design--frames)
-5. [Database Schema](#database-schema)
-6. [Features / Key Highlights](#features--key-highlights)
-7. [Security Features](#security-features)
-8. [Technologies Used](#technologies-used)
-9. [Testing Documentation](#testing-documentation)
-10. [Deployment](Deployment)
-11. [Credits](#credits)
+2. [Live Preview](#2-live-preview)
+3. [UX & User Stories](#3-ux--user-stories)
+4. [Design & Wireframes](#4-design--frames)
+5. [Database Schema](#5-database-schema)
+6. [Features / Key Highlights](#6-features--key-highlights)
+7. [Security Features](#7-security-features)
+8. [Technologies Used](#8-technologies-used)
+9. [Testing Documentation](#9-testing-documentation)
+10. [Deployment](#10-deployment)
+11. [Credits](#11-credits)
 
 ## 1. Project Overview
 
