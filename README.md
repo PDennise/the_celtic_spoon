@@ -333,3 +333,42 @@ The Celtic Spoon booking system implements essential security measures using Dja
 - CSRF protection enabled by default.
 - Protection against SQL injection through Django ORM.
 - XSS protection via Django template escaping.
+
+---
+
+## 8. Technologies Used
+
+The project is built using modern web development technologies for both backend and frontend functionality.
+
+---
+
+### Backend
+
+- **Python**
+- **Django**
+- Django ORM for database management
+- Django Authentication System
+
+---
+
+### Frontend
+
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- Bootstrap (for responsive design)
+
+---
+
+### Database
+
+- PostgreSQL (Code Institute provided database)
+- Relational database design using Django ORM
+
+---
+
+### Tools & Development
+
+- Git & GitHub for version control
+- VS Code (development environment)
+- Google Drive (documentation hosting)
