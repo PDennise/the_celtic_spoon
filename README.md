@@ -240,3 +240,57 @@ The full Entity-Relationship (ER) Diagram and detailed entity structure can be a
 
 [View ER Diagram (PDF)](https://drive.google.com/file/d/1CQ9S7YLMs-KYVGGQj0jHk-Fhb2R172fM/view?usp=share_link)
 
+---
+
+## 6. Features / Key Highlights
+
+The Celtic Spoon booking system provides a reservation management system with role-based access for customers and staff/admin users.
+
+---
+
+### Authentication
+
+- User registration with form validation
+- Secure login and logout using Django authentication
+- Automatic login after registration
+- Navigation updates based on authentication status
+
+---
+
+### Customer Features
+
+- Create a table reservation (date, time, number of guests, special requests)
+- Prevent double-booking of tables
+- Capacity validation based on table size
+- View upcoming and past reservations
+- Cancel upcoming reservations
+- Visual status indicators (pending / confirmed / completed / cancelled)
+
+---
+
+### Staff / Admin Features
+
+- View all reservations in a table layout
+- Confirm or decline pending bookings
+- Mark confirmed reservations as completed
+- Search reservations by name, email, or booking ID
+- Filter reservations by status
+- View booking statistics (today, tomorrow, pending, upcoming)
+
+---
+
+### Table Management (Admin)
+
+- View all restaurant tables
+- See table number, capacity, and location
+- View availability status
+
+---
+
+### Core Business Rules
+
+- A reservation cannot exceed table capacity
+- No double-booking allowed for the same table, date, and time
+- Only confirmed bookings can be marked as completed
+- Cancelled reservations remain stored for record keeping
+
