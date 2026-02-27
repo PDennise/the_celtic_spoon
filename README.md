@@ -150,7 +150,7 @@ Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
 
 #### User Story: Complete Reservation
 
-    As a **staff/admin**, I want to **mark confirmed bookings as completed** after customers have finished dining, so that I can **keep booking records accurate and up to date**.
+    As a staff/admin, I want to mark confirmed bookings as completed after customers have finished dining, so that I can keep booking records accurate and up to date**.
 
 #### Acceptance Criteria:
 - __Complete button__ available for __confirmed bookings.__
@@ -172,7 +172,7 @@ Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
 
 #### User Story: View Booking Statistics
 
-    As a staff/admin, I want to **view booking statistics** so that I can plan restaurant operations effectively.
+    As a staff/admin, I want to view booking statistics so that I can plan restaurant operations effectively.
 
 #### Acceptance Criteria:
 - Display __today’s bookings count.__
@@ -184,7 +184,7 @@ Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
 
 #### User Story: Manage Restaurant Tables
 
-As an admin, I want to view all restaurant tables so that I can manage seating capacity effectively.
+    As an admin, I want to view all restaurant tables so that I can manage seating capacity effectively.
 
 #### Acceptance Criteria:
 - Display all tables with __table number__, __capacity__, and __location.__
