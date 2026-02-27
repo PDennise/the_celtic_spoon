@@ -492,3 +492,26 @@ The Celtic Spoon project can be deployed to a cloud platform or run locally for 
 ```bash
   python manage.py runserver   # Django backend
 ```
+
+---
+
+## 11. Credits / Acknowledgements
+
+This project was developed as part of the **Code Institute Full Stack Development course**.
+
+---
+
+### Inspiration & Resources
+
+- [Code Institute](https://codeinstitute.net/) – course materials and guidance
+- [Bootstrap Documentation](https://getbootstrap.com/docs/) – for responsive design
+- [Django Documentation](https://docs.djangoproject.com/) – for backend development
+- [Figma / Canva / Draw.io] – for wireframe design
+- OpenAI ChatGPT – assistance with README structure and content
+
+---
+
+### Assets
+
+- Restaurant images and icons are sourced from free-to-use stock images or placeholders
+- Wireframe images created by the developer as schematic representations
