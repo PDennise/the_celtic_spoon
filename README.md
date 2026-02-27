@@ -30,3 +30,166 @@ Minimalistic design principles are applied to ensure that key information and vi
 ## 2. Live Preview
 
 Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
+
+## 3. UX & User Stories
+
+## User Stories
+
+### Authentication & User Accounts
+
+#### User Story: Account Registration
+    As a user, I want to register an account so that I can make and manage my bookings.
+
+#### Acceptance Criteria
+- Registration form includes:
+  - First name
+  - Last name
+  - Email
+  - Phone
+  - Password
+- Email input must be validated for correct __format.__
+- Password must be at least __8 characters__ long.
+- Password confirmation must match the original password.
+- Clear __validation error messages__ are displayed for invalid input.
+- After successful registration, the user is automatically __authenticated and logged in.__
+- The navigation bar reflects the user's __authentication status.__
+
+---
+
+#### User Story: User Login
+    As a user, I want to log into my account so that I can access and manage my bookings.
+
+#### Acceptance Criteria:
+- Login form includes:
+  - Email
+  - Password
+- Clear __error messages__ displayed for invalid credentials.
+- __Successful login__ redirects the user to the appropriate __dashboard__ based on their __role.__
+- __Session persists__ across pages until the user logs out.
+
+---
+
+#### User Story: User Logout
+    As a logged-in user, I want to log out of my account so that my information remains secure.
+
+#### Acceptance Criteria:
+- __Logout option__ is visible when the user is logged in.
+- __Successful logout__ clears the __session.__
+- User is __redirected to the home page__ after logout.
+
+---
+
+#### User Story: Table Reservation
+    As a customer, I want to make a table reservation so that I can dine at the restaurant.
+
+#### Acceptance Criteria:
+- Reservation form includes:
+  - __Date, time, and number of guests.__
+  - __Real-time availability checking.__
+  - __Contact information fields__ (auto-filled for logged-in users).
+  - Optional special requests field.
+- __Confirmation message__ displayed upon successful booking.
+- __Email confirmation__ sent (to be implemented in Django).
+
+---
+
+#### User Story: View Reservations
+    As a customer, I want to see all my reservations so that I can keep track of my upcoming visits.
+
+#### Acceptance Criteria:
+- __Separate tabs__ for __upcoming__ and __past bookings.__
+- Display all __booking details__: date, time, number of guests, table, status.
+- Show __special requests__ if any.
+- Include __visual status indicators__ for booking status.
+
+---
+
+#### User Story: Cancel Reservation
+    As a customer, I want to cancel a reservation so that I can free up the table if my plans change.
+
+#### Acceptance Criteria:
+- __Cancel button__ visible for __upcoming bookings.__
+- __Confirmation dialog__ before cancellation.
+- __Success message__ displayed after cancellation.
+- Booking __status updated to "cancelled".__
+
+---
+
+#### User Story: Staff/Admin View Reservations
+    As a staff/admin, I want to see all reservations so that I can manage restaurant capacity.
+
+#### Acceptance Criteria:
+- __Table view__ of all bookings.
+- __Search functionality__ by customer name, email, or booking ID.
+- __Filter by status__: pending, confirmed, completed, cancelled
+- __Sort by date/time__.
+- __Export functionality__ for reservation data.
+
+---
+
+#### User Story: Confirm Reservation
+    As a staff/admin, I want to confirm pending bookings so that customers know their reservation is comfirmed.
+
+
+#### Acceptance Criteria:
+- __Confirm button__ available for __pending bookings__
+- Booking __status updates to "confirmed"__
+- __Confirmation notification__ sent to customer __via email__
+
+---
+
+#### User Story: Decline Reservation
+    As a staff/admin, I want to decline pending bookings when tables are not available or for operational reasons, so that I can effectively manage restaurant capacity.
+
+#### Acceptance Criteria:
+- __Decline button__ available for __pending bookings__
+- Booking __status updates to "cancelled"__
+- __Notification__ sent to the customer __via email__
+
+---
+
+#### User Story: Complete Reservation
+
+    As a **staff/admin**, I want to **mark confirmed bookings as completed** after customers have finished dining, so that I can **keep booking records accurate and up to date**.
+
+#### Acceptance Criteria:
+- __Complete button__ available for __confirmed bookings.__
+- Booking __status updates to "completed".__
+
+---
+
+#### User Story: View Booking Statistics
+
+    As a staff/admin, I want to view booking statistics so that I can plan restaurant operations effectively.
+
+#### Acceptance Criteria:
+- Display __today’s bookings count__
+- Display __tomorrow’s bookings count__
+- Display __pending approvals count__
+- Display __total upcoming bookings__
+
+---
+
+#### User Story: View Booking Statistics
+
+    As a staff/admin, I want to **view booking statistics** so that I can plan restaurant operations effectively.
+
+#### Acceptance Criteria:
+- Display __today’s bookings count.__
+- Display __tomorrow’s bookings count.__
+- Display __number of pending approvals.__
+- Display __total number of upcoming bookings.__
+
+---
+
+#### User Story: Manage Restaurant Tables
+
+As an admin, I want to view all restaurant tables so that I can manage seating capacity effectively.
+
+#### Acceptance Criteria:
+- Display all tables with __table number__, __capacity__, and __location.__
+- Show __current availability status__
+- Present tables in a __visual grid layout__
+
+---
+
