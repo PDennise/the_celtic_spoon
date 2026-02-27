@@ -56,3 +56,22 @@ def cancel_booking(request, pk):
 def booking_detail(request, pk):
     booking = get_object_or_404(Booking, pk=pk, customer=request.user)
     return render(request, 'booking/booking_detail.html', {'booking': booking})
+
+@login_required
+def update_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking, user=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your booking has been updated successfully!")
+            return redirect('my_bookings')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{field}:{error}')
+    else:
+        form = BookingForm(instance=booking, user=request.user)
+
+    return render(request, 'booking/update_booking.html', {'form': form})
