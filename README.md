@@ -193,3 +193,50 @@ Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
 
 ---
 
+## 5. Database Schema
+
+The database is designed using Django ORM and follows a relational structure to support authentication, reservations, and restaurant capacity management.
+
+---
+
+### User Model
+
+Extends Django’s built-in authentication system.
+
+**Relationships:**
+- One User can have multiple Reservations
+
+---
+
+### Table Model
+
+Represents physical restaurant tables.
+
+**Relationships:**
+- One Table can have multiple Reservations
+
+---
+
+### Reservation Model
+
+Handles booking data and lifecycle.
+
+**Business Logic:**
+- A reservation must not exceed table capacity
+- No double-booking allowed for the same table at the same date/time
+- Only confirmed bookings can be marked as completed
+- Cancelled bookings remain stored for record tracking
+
+---
+
+### Relationships Overview
+
+- **User (1) → (Many) Reservations**
+- **Table (1) → (Many) Reservations**
+- Admin/Staff users manage Reservations and Tables
+
+
+The full Entity-Relationship (ER) Diagram and detailed entity structure can be accessed here:
+
+[View ER Diagram (PDF)](https://drive.google.com/file/d/1CQ9S7YLMs-KYVGGQj0jHk-Fhb2R172fM/view?usp=share_link)
+
