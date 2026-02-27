@@ -372,3 +372,38 @@ The project is built using modern web development technologies for both backend 
 - Git & GitHub for version control
 - VS Code (development environment)
 - Google Drive (documentation hosting)
+
+---
+
+## 9. Testing Documentation
+
+The Celtic Spoon booking system includes a plan for testing core functionality, form validation, and business logic for both customers and staff/admin users.
+
+---
+
+### Planned Manual Testing
+
+- User registration and login with valid and invalid credentials
+- Table reservation creation, modification, and cancellation
+- Staff/admin actions: confirm, decline, complete reservations
+- Booking lifecycle validation (pending → confirmed → completed/cancelled)
+- Form input validation (email format, password length, number of guests)
+- Navigation and role-based access control
+- UI responsiveness on different devices
+
+---
+
+### Planned Automated Testing (Optional / Future)
+
+- Django test framework could be used to test:
+  - Models
+  - Views
+  - Forms
+  - Permissions
+
+---
+
+### Notes
+
+- Edge cases for booking conflicts and table capacity should be checked
+- Email confirmation functionality will be tested in development environment
