@@ -42,9 +42,9 @@
                     <!-- CANCEL BUTTON -->
                     <td>
                         {% if booking.status == "approved" or booking.status == "pending" %}
-                        <a href="{% url 'cancel_booking' booking.id %}" 
-                        onclick="return confirm('Are you sure you want to cancel this booking?');"
-                        class="btn btn-danger btn-sm">
+                        <a href="{% url 'cancel_booking' booking.id %}"
+                            onclick="return confirm('Are you sure you want to cancel this booking?');"
+                            class="btn btn-danger btn-sm">
                             Cancel
                         </a>
                         {% else %}
@@ -56,6 +56,7 @@
                         <a href="{% url 'booking_detail' booking.id %}" class="btn btn-primary btn-sm ms-2">
                             View Details
                         </a>
+                        <a href="{% url 'delete_booking' booking.pk %}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

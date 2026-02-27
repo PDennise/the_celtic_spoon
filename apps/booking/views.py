@@ -75,3 +75,14 @@ def update_booking(request, pk):
         form = BookingForm(instance=booking, user=request.user)
 
     return render(request, 'booking/update_booking.html', {'form': form})
+
+@login_required
+def delete_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
+
+    if request.method == "POST":
+        booking.delete()
+        messages.success(request, "Your booking has been deleted successfully.")
+        return redirect("my_bookings")
+
+    return render(request, "booking/delete_booking.html", {"booking": booking})
