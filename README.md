@@ -26,3 +26,7 @@ The Celtic Spoon is designed as a modern and welcoming restaurant website, celeb
 In addition, the menu creatively incorporates subtle Turkish culinary influences, offering a unique fusion experience for adventurous diners. Traditional Celtic dishes might be enhanced with Turkish spices, yogurts, or pastries, creating an innovative blend of flavors that reflects both authenticity and creativity in Celtic culinary culture.
 
 Minimalistic design principles are applied to ensure that key information and visuals, such as featured dishes, chef specials, and restaurant highlights, stand out without distractions.
+
+## 2. Live Preview
+
+Live demo link: https://the-celtic-spoon-fd61489fc4df.herokuapp.com/
