@@ -10,7 +10,7 @@
 1. [Project Overview](#1-project-overview)
 2. [Live Preview](#2-live-preview)
 3. [UX & User Stories](#3-ux--user-stories)
-4. [Design & Wireframes](#4-design--frames)
+4. [Design & Wireframes](#4-design--wireframes)
 5. [Database Schema](#5-database-schema)
 6. [Features / Key Highlights](#6-features--key-highlights)
 7. [Security Features](#7-security-features)
@@ -220,14 +220,8 @@ The Celtic Spoon website was designed with a **minimalist and user-friendly appr
 
 ### Assets / Wireframe Images
 
-- Placeholder for wireframe images:
-  - ![Homepage Wireframe](docs/homepage-wireframe.png)  
-  - ![Menu Page Wireframe](docs/menu-wireframe.png)  
-  - ![Reservation Page Wireframe](docs/reservation-wireframe.png)  
-  - ![Customer Dashboard Wireframe](docs/customer-dashboard-wireframe.png)  
-  - ![Staff/Admin Dashboard Wireframe](docs/admin-dashboard-wireframe.png)
-
-> Note: Actual wireframe images can be added to the `docs/` folder. These placeholders ensure links work and images can be included later.
+- Doc for wireframe images:
+  - ![Wireframes](https://drive.google.com/drive/folders/1hSCbtlzsQkKt0Et6DXaHnZ7ze86roEEB?usp=share_link)
 
 ---
 
@@ -488,9 +482,22 @@ The Celtic Spoon project can be deployed to a cloud platform or run locally for 
   python manage.py migrate
 ```
 
-7. Start development servers:
+7. Start development server:
 ```bash
   python manage.py runserver   # Django backend
+```
+
+8. Access the site at http://127.0.0.1:8000/
+
+
+
+### Cloud Deployment
+- Code Institute provides a PostgreSQL database for production
+- The project can be deployed using platforms such as Render, Heroku, or PythonAnywhere
+- Environment variables should be configured for security (e.g., SECRET_KEY, DATABASE_URL, DEBUG)
+- Static files must be collected using:
+```bash
+python manage.py collectstatic
 ```
 
 ---
