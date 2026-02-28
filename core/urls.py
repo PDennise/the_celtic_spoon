@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core import views # import for home_view
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('staff/dashboard/', views.staff_dashboard, name='staff_dashboard'),
     path('staff/booking/<int:booking_id>/approve/', views.approve_booking, name='approve_booking'),
     path('staff/booking/int:booking_id/decline/', views.decline_booking, name='decline_booking'),
+    path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
 ]
