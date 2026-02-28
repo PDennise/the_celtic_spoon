@@ -1,0 +1,68 @@
+/* Navbar container*/
+nav {
+    background: #222;   /* Dark background for navbar */
+    padding: 10px 20px;   /* Top-bottom and left-right padding */
+}
+
+/* Navbar list items */
+.nav-menu {
+    list-style: none;   /* Remove bullets */
+    display: flex;      /* Horizontal layout */
+    gap: 20px;          /* Space between items */
+    align-items: center;/* Vertically center items */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar links */
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;  /* Remove underline */
+    padding: 5px 10px;
+}
+
+/* User menu container */
+.user-menu {
+    margin-left: auto; /* Push to the right side */
+    position: relative;/* Needed for dropdown positioning */
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: absolute; /* Position relative to user-menu */
+    top: 100%;
+    right: 0;
+    background: #333;
+    list-style: none;       /* Remove bullets */
+    padding: 0;
+    margin: 0;
+    display: none; /*  hidden by default */
+    min-width: 100px;
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Dropdown links */
+.dropdown li a {
+    display: block; /* Full width clickable */
+    padding: 10px;
+    color: #fff;
+}
+
+/* Hover effect for dropdown items */
+.dropdown li a:hover {
+    background: #555;
+}
+
+/* --- Navbar Fix --- */
+
+.navbar {
+    overflow: visible;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.dropdown-menu {
+    position: absolute;
+}
