@@ -2,7 +2,26 @@
 {% load static %}
 
 {% block content %}
-<h1>Welcome to The Celtic Spoon!</h1>
-<p>This is the home page.</p>
-
+<header id="hero">
+    <!-- section with hero image -->
+    <div class="container">
+        <div class="row">
+            <!-- text-center class used to centre all text inside column -->
+            <div class="col-12 text-center text-white">
+                <h1 class="display-4 my-4">Welcome to The Celtic Spoon</h1>
+                <!-- mb-5 gives extra margin spacing under subheading -->
+                <h2 class="display-6 mb-5">An Exquisite Fine Dining Experience</h2>
+                <p>
+                    Rooted in Celtic heritage and elevated with contemporary creativity,
+                    The Celtic Spoon brings together Irish, Scottish, and Northern European
+                    flavours with delicate Turkish influences for a truly distinctive dining experience.
+                </p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary sharp-corners custom-button" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Reserve Your Table
+                </button>
+            </div>
+        </div>
+</header>
 {% endblock %}

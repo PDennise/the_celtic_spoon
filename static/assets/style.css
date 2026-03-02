@@ -1,3 +1,13 @@
+/* GLOBAL FONTS */
+
+/* Body: Readable, modern sans-serif */
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;   /* Readable spacing */
+    color: #222;
+}
+
 /* Navbar container*/
 nav {
     background: #222;   /* Dark background for navbar */
@@ -65,4 +75,92 @@ nav {
 
 .dropdown-menu {
     position: absolute;
+}
+
+
+/* Hero Section */
+#hero {
+    background-image: url("../assets/images/hero_image_home.jpeg");
+    background-size: cover;                                         /* Ensures the image fully covers the hero area */
+    background-position: center;                                    /* Keeps image centered while cropping */
+    background-repeat: no-repeat;
+
+    min-height: 100vh;                                              /* Full viewport height */
+    display: flex;                                                  /* Enables vertical alignment of content */
+    align-items: center;                                            /* Vertically centers hero content */
+
+    position: relative;                                             /* Required for overlay positioning */
+    
+    /* Improves vertical breathing space inside hero */
+    padding: 80px 20px;                                             /* Adds vertical rhythm */
+}
+
+/* Dark overlay for better text readability */
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;                                                       /* Covers entire hero area */
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Keeps hero text above overlay */
+#hero .container {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;                                               /* Prevents text from stretching too wide */
+    text-align: center;                                             /* Centers hero text and limits width for elegant layout */
+}
+
+/* Hero headings */
+
+#hero h1 {
+    font-weight: 900;                                               /* Extra-bold for high impact and readability */
+    font-size: 3.5rem;                                              /* Larger size for hero prominence */
+    letter-spacing: 1px;                                            /* Slight spacing to enhance elegance */
+    margin-bottom: 20px;                                            /* Adds refined spacing under main heading */
+}
+
+#hero h2 {
+    font-weight: 700;                                               /* Bold to complement main heading */
+    font-size: 2rem;                                                /* Maintains hierarchy below h1 */
+    letter-spacing: 0.5px;                                          /* Adds subtle refinement */
+    margin-bottom: 25px;                                            /* Subheading spacing */
+}
+#hero h1, #hero h2 {
+    color: white;                                                 /* Contrast over overlay */
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);                      /* Adds subtle text shadow for depth over background image */
+}
+
+/* Enhances readability of hero paragraph */
+#hero p {
+    font-size: 1.1rem;
+    line-height: 1.8;                                               /* More elegant spacing */
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.9);                                 /* Softer white for refinement */
+}
+
+/* Hero button: bold and slightly spaced for premium CTA */
+#hero .btn {
+    background-color: #D4AF37;                                    /* Premium gold */
+    border-color: #D4AF37;                                        /* Matches background for clean look */
+    color: #111;                                                  /* Dark text over gold */
+    font-weight: 600;                                               /* Makes call-to-action prominent */
+    letter-spacing: 0.5px;                                          /* Slight spacing enhances readability */
+    padding: 10px 25px;                                             /* Comfortable click area */
+    transition: all 0.3s ease;                                      /* Smooth hover effect */
+}
+
+#hero .btn:hover {
+    background-color: #C6A75E;                                    /* Slightly darker gold for hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+}
+
+/* Headings: Elegant, classy serif */
+h1, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #111;                                                  /* Slightly darker for premium feel */
 }
