@@ -164,3 +164,48 @@ h1, h4 {
     line-height: 1.2;
     color: #111;                                                  /* Slightly darker for premium feel */
 }
+
+h5, h2 {
+    font-weight: 700;
+}
+
+/* =============================== */
+/* WHY CHOOSE US SECTION */
+/* =============================== */
+
+#why-choose-us {
+    background-color: #f8f9fa;  /* Light elegant background */
+}
+
+/* Custom card styling */
+.custom-card {
+    border: none;                          
+    border-radius: 15px;                  
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Slight lift on hover */
+.custom-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Icon circle */
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: #f4e3b2;    /* Soft gold background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Icon style */
+.icon-wrapper i {
+    font-size: 24px;
+    color: #c78f2c;              /* Gold icon */
+}
