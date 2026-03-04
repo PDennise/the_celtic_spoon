@@ -331,3 +331,43 @@ h5, h2 {
 #dine-with-us span {
     color: #fff;
 }
+
+/* =============================== */
+/* FOOTER */
+/* =============================== */
+
+#footer {
+    background-color: #111;        /* Dark luxury */
+    color: #fff;                   /* Default text white */
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+}
+
+#footer h3, #footer h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #D4AF37;               /* Gold headings */
+}
+
+#footer p {
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.8); /* Slightly muted for elegance */
+}
+
+#footer a {
+    color: #D4AF37;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #footer .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
