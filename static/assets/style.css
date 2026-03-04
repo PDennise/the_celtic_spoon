@@ -371,3 +371,92 @@ h5, h2 {
         gap: 30px;
     }
 }
+
+/* =============================== */
+/* MENU SECTION */
+/* =============================== */
+
+#menu-section {
+    max-width: 900px;
+}
+
+#menu-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#menu-section p {
+    color: #666;
+}
+
+/* Category spacing */
+.menu-category {
+    margin-bottom: 50px;
+}
+
+/* Category titles */
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Gold underline */
+.category-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #D4AF37;
+}
+
+/* Menu item layout */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    transition: 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #f9f9f9;
+    padding-left: 10px;
+}
+
+.menu-item h5 {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.menu-item p {
+    margin: 0;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* Price styling */
+.price {
+    font-weight: 700;
+    color: #D4AF37;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .price {
+        align-self: flex-start;
+    }
+}

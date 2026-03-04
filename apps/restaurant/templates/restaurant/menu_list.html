@@ -1,10 +1,230 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Menu{% endblock %}
 
 {% block content %}
-<h1>Restaurant Menu</h1>
-<ul>
-  {% for item in items %}
-    <li>{{ item.name }} - €{{ item.price }}</li>
-  {% endfor %}
-</ul>
+
+<section id="menu-section" class="container py-5">
+
+  <div class="text-center mb-5">
+    <h1>Our Menu</h1>
+    <p>Carefully crafted dishes using the finest ingredients.</p>
+  </div>
+
+  <!-- STARTERS -->
+  <div class="menu-category">
+    <h2 class="category-title">Starters</h2>
+
+    <div class="menu-item">
+      <div>
+        <h5>Smoked Salmon & Dill Yogurt</h5>
+        <p>GTraditionally smoked Irish salmon served with lemon zest and a light garlic-infused strained yogurt,
+          finished with a delicate sprinkle of sumac for a subtle Anatolian nuance.</p>
+      </div>
+      <span class="price">€10</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Scottish Haggis Bites with Spiced Ayran Dip</h5>
+        <p>Crisp haggis croquettes paired with a refreshing mint and cumin-spiced ayran,
+          balancing richness with cooling herbal notes..</p>
+      </div>
+      <span class="price">€9</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Rustic Celtic Soup of the Day</h5>
+        <p>A comforting daily creation inspired by Irish and Scottish countryside traditions,
+          served with warm homemade soda bread.</p>
+      </div>
+      <span class="price">€8</span>
+    </div>
+    <div class="menu-item">
+      <div>
+        <h5>Wild Mushroom Borek Pastry</h5>
+        <p>Flaky butter pastry layered with wild mushrooms, thyme, and aged cheese,
+          inspired by the artistry of traditional Turkish borek.</p>
+      </div>
+      <span class="price">€11</span>
+    </div>
+  </div>
+
+  <!-- MAINS -->
+  <div class="menu-category">
+    <h2 class="category-title">Mains</h2>
+
+    <div class="menu-item">
+      <div>
+        <h5>Irish Lamb Stew with Anatolian Herbs</h5>
+        <p>Slow-braised lamb with seasonal root vegetables in a rich broth,
+          gently elevated with isot pepper and mountain thyme for a warm, aromatic depth.</p>
+      </div>
+      <span class="price">€24</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Highland Grilled Salmon with Herb Yogurt Sauce</h5>
+        <p>Fresh Scottish salmon, expertly grilled and accompanied by dill-lemon yogurt and warm barley herb salad.</p>
+      </div>
+      <span class="price">€18</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Celtic Shepherd’s Pie with Sumac Mash</h5>
+        <p>Seasoned lamb and garden vegetables crowned with creamy mashed
+          potatoes delicately infused with sumac for a subtle citrus brightness.</p>
+      </div>
+      <span class="price">€20</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Northern Roast Chicken with Thyme & Tahini Glaze</h5>
+        <p>Oven-roasted chicken finished with thyme and a light tahini glaze,
+          offering a refined balance of Northern European elegance and Mediterranean warmth..</p>
+      </div>
+      <span class="price">€22</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Root Vegetable & Red Lentil Casserole (V)</h5>
+        <p>A nourishing vegetarian composition of seasonal root vegetables and red lentils,
+          served with gently spiced yogurt and fresh herbs.</p>
+      </div>
+      <span class="price">€19</span>
+    </div>
+  </div>
+
+  <!-- SIDES -->
+  <div class="menu-category">
+    <h2 class="category-title">Sides</h2>
+
+    <div class="menu-item">
+      <div>
+        <h5>Buttered Cabbage with Caraway Seeds</h5>
+        <p>Tender sautéed cabbage finished with butter and aromatic caraway.</p>
+      </div>
+      <span class="price">€7</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Irish Soda Bread</h5>
+        <p>Traditional rustic bread with a golden crust and soft, hearty crumb.</p>
+      </div>
+      <span class="price">€3</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Bulgur & Herb Salad</h5>
+        <p>Bulgur wheat tossed with parsley, mint, and lemon dressing, reflecting Anatolian vibrancy.</p>
+      </div>
+      <span class="price">€8</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Garlic Roasted Potatoes</h5>
+        <p>Crisp roasted potatoes infused with rosemary and garlic.</p>
+      </div>
+      <span class="price">€6</span>
+    </div>
+  </div>
+
+  <!-- DESSERTS -->
+  <div class="menu-category">
+    <h2 class="category-title">Desserts</h2>
+
+    <div class="menu-item">
+      <div>
+        <h5>Baileys & Honey Baklava Slice</h5>
+        <p>Delicate layers of crisp pastry filled with crushed walnuts and pistachios,
+          gently soaked in honey syrup and finished with a smooth Baileys Irish cream drizzle.</p>
+      </div>
+      <span class="price">€6</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Baileys Chocolate Mousse with Pistachio Crumble</h5>
+        <p>Silken chocolate mousse enriched with Baileys Irish Cream and complemented by roasted pistachio crumble.</p>
+      </div>
+      <span class="price">€6,5</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Sticky Date Pudding with Honeyed Walnuts</h5>
+        <p>A warm, indulgent date sponge served with rich cream and honey-glazed toasted walnuts.</p>
+      </div>
+      <span class="price">€7</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Apple & Cinnamon Tart with Vanilla Yogurt</h5>
+        <p>Buttery pastry filled with spiced apples and cinnamon, served alongside smooth vanilla-infused yogurt.</p>
+      </div>
+      <span class="price">€7,5</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Turkish Coffee Tiramisu</h5>
+        <p>A refined reinterpretation of the classic, layered with mascarpone cream and the bold aroma of Turkish
+          coffee.</p>
+      </div>
+      <span class="price">€8</span>
+    </div>
+  </div>
+
+  <!-- DESSERTS -->
+  <div class="menu-category">
+    <h2 class="category-title">Desserts</h2>
+
+    <div class="menu-item">
+      <div>
+        <h5>Selection of Irish & Scottish Whiskeys (Glass)</h5>
+        <p>An elegant collection of distinguished Irish and Scottish whiskies, 
+          from delicately smooth to deeply peated expressions, selected to enhance your dining journey.</p>
+      </div>
+      <span class="price">€12</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>House-Made Pomegranate or Lemon Sherbet</h5>
+        <p>A refined house-crafted refreshment made with fresh citrus or pomegranate, 
+          offering a vibrant and palate-cleansing finish.</p>
+      </div>
+      <span class="price">€8</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Classic & Mint Ayran</h5>
+        <p>A velvety yogurt infusion, served either pure or subtly scented with 
+          fresh mint for a cooling counterpoint to rich flavours.</p>
+      </div>
+      <span class="price">€6</span>
+    </div>
+
+    <div class="menu-item">
+      <div>
+        <h5>Boutique European Wines (Glass)</h5>
+        <p>A curated selection of red, white, and rosé wines from boutique European vineyards, 
+          thoughtfully paired with our modern Celtic creations.</p>
+      </div>
+      <span class="price">€12</span>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
