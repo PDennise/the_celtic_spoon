@@ -16,3 +16,4 @@ ENV/
 .env.production
 
 /staticfiles/
+staticfiles/
