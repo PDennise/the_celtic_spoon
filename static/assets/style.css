@@ -251,3 +251,83 @@ h5, h2 {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
+
+/* =============================== */
+/* DARK LUXURY CTA */
+/* =============================== */
+
+#dine-with-us {
+    background: #111;                        /* Deep charcoal */
+    padding: 100px 20px;
+    position: relative;
+    text-align: center;
+}
+
+/* Subtle gold top & bottom line */
+#dine-with-us::before,
+#dine-with-us::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+}
+
+#dine-with-us::before {
+    top: 40px;
+}
+
+#dine-with-us::after {
+    bottom: 40px;
+}
+
+/* Headings */
+#dine-with-us h2 {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* Paragraph */
+#dine-with-us p {
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Gold Button */
+.btn-gold {
+    background-color: #D4AF37;
+    border: none;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 30px;
+    border-radius: 0;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn-gold:hover {
+    background-color: #C6A75E;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+}
+
+/* Phone link */
+#dine-with-us a {
+    color: #D4AF37;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#dine-with-us a:hover {
+    text-decoration: underline;
+}
+
+#dine-with-us span {
+    color: #fff;
+}
