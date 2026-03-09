@@ -4,22 +4,29 @@
 body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    line-height: 1.6;   /* Readable spacing */
+    line-height: 1.6;
+    /* Readable spacing */
     color: #222;
 }
 
 /* Navbar container*/
 nav {
-    background: #222;   /* Dark background for navbar */
-    padding: 10px 20px;   /* Top-bottom and left-right padding */
+    background: #fff;
+    /* Light background for navbar */
+    padding: 10px 20px;
+    /* Top-bottom and left-right padding */
 }
 
 /* Navbar list items */
 .nav-menu {
-    list-style: none;   /* Remove bullets */
-    display: flex;      /* Horizontal layout */
-    gap: 20px;          /* Space between items */
-    align-items: center;/* Vertically center items */
+    list-style: none;
+    /* Remove bullets */
+    display: flex;
+    /* Horizontal layout */
+    gap: 20px;
+    /* Space between items */
+    align-items: center;
+    /* Vertically center items */
     margin: 0;
     padding: 0;
 }
@@ -27,40 +34,42 @@ nav {
 /* Navbar links */
 .nav-menu li a {
     color: #fff;
-    text-decoration: none;  /* Remove underline */
+    text-decoration: none;
+    /* Remove underline */
     padding: 5px 10px;
 }
 
 /* User menu container */
 .user-menu {
-    margin-left: auto; /* Push to the right side */
-    position: relative;/* Needed for dropdown positioning */
+    margin-left: auto;
+    /* Push to the right side */
+    position: relative;
+    /* Needed for dropdown positioning */
 }
 
 /* Dropdown menu */
 .dropdown {
-    position: absolute; /* Position relative to user-menu */
     top: 100%;
     right: 0;
-    background: #333;
-    list-style: none;       /* Remove bullets */
+    list-style: none;
+    /* Remove bullets */
     padding: 0;
     margin: 0;
-    display: none; /*  hidden by default */
     min-width: 100px;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 5px;
+    /* Rounded corners */
 }
 
 /* Dropdown links */
-.dropdown li a {
-    display: block; /* Full width clickable */
+.dropdown-item {
     padding: 10px;
-    color: #fff;
+    color: white;
 }
 
 /* Hover effect for dropdown items */
-.dropdown li a:hover {
+.dropdown-item:hover {
     background: #555;
+    color: white;
 }
 
 /* --- Navbar Fix --- */
@@ -74,32 +83,42 @@ nav {
 }
 
 .dropdown-menu {
-    position: absolute;
+    background:#333;
+    border: none;
+    z-index: 1000;
 }
 
 
 /* Hero Section */
 #hero {
     background-image: url("../assets/images/hero_image_home.jpeg");
-    background-size: cover;                                         /* Ensures the image fully covers the hero area */
-    background-position: center;                                    /* Keeps image centered while cropping */
+    background-size: cover;
+    /* Ensures the image fully covers the hero area */
+    background-position: center;
+    /* Keeps image centered while cropping */
     background-repeat: no-repeat;
 
-    min-height: 100vh;                                              /* Full viewport height */
-    display: flex;                                                  /* Enables vertical alignment of content */
-    align-items: center;                                            /* Vertically centers hero content */
+    min-height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    /* Enables vertical alignment of content */
+    align-items: center;
+    /* Vertically centers hero content */
 
-    position: relative;                                             /* Required for overlay positioning */
-    
+    position: relative;
+    /* Required for overlay positioning */
+
     /* Improves vertical breathing space inside hero */
-    padding: 80px 20px;                                             /* Adds vertical rhythm */
+    padding: 80px 20px;
+    /* Adds vertical rhythm */
 }
 
 /* Dark overlay for better text readability */
 #hero::before {
     content: "";
     position: absolute;
-    inset: 0;                                                       /* Covers entire hero area */
+    inset: 0;
+    /* Covers entire hero area */
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -108,64 +127,91 @@ nav {
     position: relative;
     z-index: 2;
 
-    max-width: 800px;                                               /* Prevents text from stretching too wide */
-    text-align: center;                                             /* Centers hero text and limits width for elegant layout */
+    max-width: 800px;
+    /* Prevents text from stretching too wide */
+    text-align: center;
+    /* Centers hero text and limits width for elegant layout */
 }
 
 /* Hero headings */
 
 #hero h1 {
-    font-weight: 900;                                               /* Extra-bold for high impact and readability */
-    font-size: 3.5rem;                                              /* Larger size for hero prominence */
-    letter-spacing: 1px;                                            /* Slight spacing to enhance elegance */
-    margin-bottom: 20px;                                            /* Adds refined spacing under main heading */
+    font-weight: 900;
+    /* Extra-bold for high impact and readability */
+    font-size: 3.5rem;
+    /* Larger size for hero prominence */
+    letter-spacing: 1px;
+    /* Slight spacing to enhance elegance */
+    margin-bottom: 20px;
+    /* Adds refined spacing under main heading */
 }
 
 #hero h2 {
-    font-weight: 700;                                               /* Bold to complement main heading */
-    font-size: 2rem;                                                /* Maintains hierarchy below h1 */
-    letter-spacing: 0.5px;                                          /* Adds subtle refinement */
-    margin-bottom: 25px;                                            /* Subheading spacing */
+    font-weight: 700;
+    /* Bold to complement main heading */
+    font-size: 2rem;
+    /* Maintains hierarchy below h1 */
+    letter-spacing: 0.5px;
+    /* Adds subtle refinement */
+    margin-bottom: 25px;
+    /* Subheading spacing */
 }
-#hero h1, #hero h2 {
-    color: white;                                                 /* Contrast over overlay */
-    text-shadow: 0 4px 10px rgba(0,0,0,0.6);                      /* Adds subtle text shadow for depth over background image */
+
+#hero h1,
+#hero h2 {
+    color: white;
+    /* Contrast over overlay */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    /* Adds subtle text shadow for depth over background image */
 }
 
 /* Enhances readability of hero paragraph */
 #hero p {
     font-size: 1.1rem;
-    line-height: 1.8;                                               /* More elegant spacing */
+    line-height: 1.8;
+    /* More elegant spacing */
     margin-bottom: 30px;
-    color: rgba(255,255,255,0.9);                                 /* Softer white for refinement */
+    color: rgba(255, 255, 255, 0.9);
+    /* Softer white for refinement */
 }
 
 /* Hero button: bold and slightly spaced for premium CTA */
 #hero .btn {
-    background-color: #D4AF37;                                    /* Premium gold */
-    border-color: #D4AF37;                                        /* Matches background for clean look */
-    color: #111;                                                  /* Dark text over gold */
-    font-weight: 600;                                               /* Makes call-to-action prominent */
-    letter-spacing: 0.5px;                                          /* Slight spacing enhances readability */
-    padding: 10px 25px;                                             /* Comfortable click area */
-    transition: all 0.3s ease;                                      /* Smooth hover effect */
+    background-color: #D4AF37;
+    /* Premium gold */
+    border-color: #D4AF37;
+    /* Matches background for clean look */
+    color: #111;
+    /* Dark text over gold */
+    font-weight: 600;
+    /* Makes call-to-action prominent */
+    letter-spacing: 0.5px;
+    /* Slight spacing enhances readability */
+    padding: 10px 25px;
+    /* Comfortable click area */
+    transition: all 0.3s ease;
+    /* Smooth hover effect */
 }
 
 #hero .btn:hover {
-    background-color: #C6A75E;                                    /* Slightly darker gold for hover */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    background-color: #C6A75E;
+    /* Slightly darker gold for hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
 }
 
 /* Headings: Elegant, classy serif */
-h1, h4 {
+h1,
+h4 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     line-height: 1.2;
-    color: #111;                                                  /* Slightly darker for premium feel */
+    color: #111;
+    /* Slightly darker for premium feel */
 }
 
-h5, h2 {
+h5,
+h2 {
     font-weight: 700;
 }
 
@@ -174,14 +220,15 @@ h5, h2 {
 /* =============================== */
 
 #why-choose-us {
-    background-color: #f8f9fa;  /* Light elegant background */
+    background-color: #f8f9fa;
+    /* Light elegant background */
 }
 
 /* Custom card styling */
 .custom-card {
-    border: none;                          
-    border-radius: 15px;                  
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     padding: 30px;
     transition: all 0.3s ease;
 }
@@ -189,14 +236,15 @@ h5, h2 {
 /* Slight lift on hover */
 .custom-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Icon circle */
 .icon-wrapper {
     width: 70px;
     height: 70px;
-    background-color: #f4e3b2;    /* Soft gold background */
+    background-color: #f4e3b2;
+    /* Soft gold background */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -207,7 +255,8 @@ h5, h2 {
 /* Icon style */
 .icon-wrapper i {
     font-size: 24px;
-    color: #c78f2c;              /* Gold icon */
+    color: #c78f2c;
+    /* Gold icon */
 }
 
 /* Signature section spacing */
@@ -234,7 +283,7 @@ h5, h2 {
 .dish-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     display: flex;
     align-items: flex-end;
     padding: 20px;
@@ -249,7 +298,7 @@ h5, h2 {
 
 .dish-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* =============================== */
@@ -257,7 +306,8 @@ h5, h2 {
 /* =============================== */
 
 #dine-with-us {
-    background: #111;                        /* Deep charcoal */
+    background: #111;
+    /* Deep charcoal */
     padding: 100px 20px;
     position: relative;
     text-align: center;
@@ -293,7 +343,7 @@ h5, h2 {
 
 /* Paragraph */
 #dine-with-us p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     max-width: 600px;
     margin: 0 auto 30px;
 }
@@ -314,7 +364,7 @@ h5, h2 {
 .btn-gold:hover {
     background-color: #C6A75E;
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(212,175,55,0.3);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
 }
 
 /* Phone link */
@@ -337,22 +387,27 @@ h5, h2 {
 /* =============================== */
 
 #footer {
-    background-color: #111;        /* Dark luxury */
-    color: #fff;                   /* Default text white */
+    background-color: #111;
+    /* Dark luxury */
+    color: #fff;
+    /* Default text white */
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
 }
 
-#footer h3, #footer h4 {
+#footer h3,
+#footer h4 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #D4AF37;               /* Gold headings */
+    color: #D4AF37;
+    /* Gold headings */
 }
 
 #footer p {
     margin-bottom: 10px;
-    color: rgba(255,255,255,0.8); /* Slightly muted for elegance */
+    color: rgba(255, 255, 255, 0.8);
+    /* Slightly muted for elegance */
 }
 
 #footer a {
@@ -458,5 +513,81 @@ h5, h2 {
 
     .price {
         align-self: flex-start;
+    }
+}
+
+/* =============================== */
+/* CONTACT PAGE */
+/* =============================== */
+
+#contact-hero {
+    background: linear-gradient(to right, #f8f5f0, #fdfcf9);
+}
+
+#contact-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+#contact-form {
+    background-color: #f8f5f0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+#contact-form .btn {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+#contact-form .btn:hover {
+    background-color: #C6A75E;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+#contact-form .form-control {
+    border-radius: 0;
+}
+
+#contact-form .form-control:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+#success-message {
+    background: #e8f7ec;
+    border: 1px solid #b6e3c1;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 6px;
+    animation: fadeIn 0.4s ease;
+}
+
+.map-container iframe {
+    width: 100%;
+    border-radius: 12px;
+    border: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
