@@ -17,10 +17,9 @@
                     flavours with delicate Turkish influences for a truly distinctive dining experience.
                 </p>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary sharp-corners custom-button" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                <a href="{% url 'create_booking' %}" class="btn btn-primary">
                     Reserve Your Table
-                </button>
+                </a>
 
             </div>
         </div>
@@ -144,11 +143,10 @@
         <p>Book your table now and experience fine dining at its best</p>
 
         <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap mt-4">
-            <button type="button" class="btn btn-gold d-flex align-items-center gap-2" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+            <a href="{% url 'create_booking' %}" class="btn btn-primary d-flex align-items-center gap-2">
                 <i class="bi bi-journal-check"></i>
                 Reserve Your Table
-            </button>
+            </a>
 
             <span class="d-flex align-items-center">
                 <i class="bi bi-telephone-fill me-2"></i>
