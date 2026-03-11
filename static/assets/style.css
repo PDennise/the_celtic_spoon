@@ -596,3 +596,73 @@ h2 {
         transform: translateY(0);
     }
 }
+
+/* =============================== */
+/* RESERVATION PAGE */
+/* =============================== */
+
+.back-home {
+    padding: 15px 20px;
+}
+
+.back-home a {
+    border-color: #D4AF37;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.back-home a:hover {
+    background-color: #C6A75E;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    text-decoration: none;
+}
+
+.row h3{
+    font-weight: 600;
+}
+
+form .btn {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+form .btn:hover {
+    background-color: #C6A75E;
+    border-color: #C6A75E ;
+    color: #111;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+form .cancel {
+    background-color: rgb(230, 49, 49);
+    border-color: rgb(230, 49, 49);
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+form .cancel:hover {
+    background-color: #b53e2b;
+    border-color: #b53e2b;
+    color: #111;
+    box-shadow: 0 6px 12px #b53e2b;
+    transform: scale(1.05);
+}
+
+.booking-page {
+    background-color: #f8f9fa;
+}

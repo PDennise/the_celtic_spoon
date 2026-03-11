@@ -4,40 +4,51 @@
 {% block title %}Create a Booking{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h3 class="card-title mb-3 text-center">Create a Booking</h3>
-                
-                <form method="post" novalidate>
-                    {% csrf_token %}
+<div class="booking-page">
+    <div class="back-home">
+        <a href="{% url 'home' %}">
+            ← Back to Home
+        </a>
+    </div>
 
-                    <!-- Show general form errors -->
-                    {% if form.non_field_errors %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-3 text-center">Make a Reservation</h3>
+
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+
+                        <!-- Show general form errors -->
+                        {% if form.non_field_errors %}
                         <div class="alert alert-danger">
                             {% for error in form.non_field_errors %}
-                                {{ error }}
+                            {{ error }}
                             {% endfor %}
                         </div>
-                    {% endif %}
+                        {% endif %}
 
-                    {% for field in form %}
+                        {% for field in form %}
                         <div class="mb-3">
                             {{ field.label_tag }}
                             {{ field }}
                             {% if field.errors %}
-                                <div class="text-danger small mt-1">
-                                    {% for error in field.errors %}
-                                        {{ errors }}
-                                    {% endfor %}
-                                </div>
+                            <div class="text-danger small mt-1">
+                                {% for error in field.errors %}
+                                {{ errors }}
+                                {% endfor %}
+                            </div>
                             {% endif %}
                         </div>
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary w-100">Book Now</button>
-                </form>
+                        {% endfor %}
+                        <div class="col-sm-6 d-flex align-items-center gap-2 mx-auto">
+                            <a href="{% url 'home' %}" class="btn btn-primary w-100 cancel">Cancel</a>
+                            <button type="submit" class="btn btn-primary w-100">Book Now</button>
+                        </div>
+                    </form>
 
+                </div>
             </div>
         </div>
     </div>
