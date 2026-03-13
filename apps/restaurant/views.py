@@ -15,9 +15,6 @@ def contact(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
 
-        # For testing: print in terminal
-        print(f"Contact form submitted: {name}, {email}, {message}")
-
         success = True  # send to template
 
     return render(request, 'contact.html', {'success': success})
