@@ -36,7 +36,7 @@
                     <hr>
 
                     {% if booking.customer == request.user %}
-                            <form method="post" action="{% url 'cancel_booking' booking.id %}">
+                            <form method="post" action="{% url 'delete_booking' booking.id %}">
                                 {% csrf_token %}
                                 <button class="btn btn-danger w-100" type="submit">
                                     Cancel Booking
