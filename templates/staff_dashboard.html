@@ -65,6 +65,7 @@
                     <th>Guests</th>
                     <th>Status</th>
                     <th>Actions</th>
+                    <th>Special Requests</th>
                 </tr>
             </thead>
             <tbody>
@@ -87,10 +88,14 @@
                         {% endif %}
                     </td>
 
-                    <!-- CANCEL BUTTON -->
                     <td>
                         {% if booking.status == "approved" or booking.status == "pending" %}
-                        <a href="{% url 'cancel_booking' booking.id %}" class="btn btn-danger btn-sm">
+                        <!-- UPDATE BUTTON-->
+                        <a href="{% url 'update_booking' booking.pk %}" class="btn btn-success btn-sm ms-2">
+                            Edit
+                        </a>
+                         <!-- DELETE BUTTON -->
+                        <a href="{% url 'delete_booking' booking.id %}" class="btn btn-danger btn-sm">
                             Cancel
                         </a>
                         {% else %}

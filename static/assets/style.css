@@ -664,5 +664,10 @@ form .cancel:hover {
 }
 
 .booking-page {
-    background-color: #f8f9fa;
+    background-color: linear-gradient(to right, #f8f5f0, #fdfcf9);;
+}
+
+.col-md-6 {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
