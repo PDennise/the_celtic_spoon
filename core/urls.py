@@ -27,6 +27,6 @@ urlpatterns = [
     path('booking/', include('apps.booking.urls')),
     path('staff/dashboard/', views.staff_dashboard, name='staff_dashboard'),
     path('staff/booking/<int:booking_id>/approve/', views.approve_booking, name='approve_booking'),
-    path('staff/booking/int:booking_id/decline/', views.decline_booking, name='decline_booking'),
+    path('staff/booking/<int:booking_id>/decline/', views.decline_booking, name='decline_booking'),
     path('contact/', TemplateView.as_view(template_name='contact.html'), name='contact'),
 ]

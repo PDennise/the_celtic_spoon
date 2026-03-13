@@ -9,21 +9,13 @@ class BookingForm(forms.ModelForm):
         model = Booking
         # We'll add the 'time' field manually in __init__
         fields = ['date', 'number_of_guests', 'special_requests']  # Fields user can fill
+
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),   # HTML5 date picker
-            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control'}),
-        }
-
-        error_messages = {
-            # Custom error messages for the 'date' field
-            'date': {
-                'required': "Please select a date.",     # Shown when field is empty
-                'invalid': "Please enter a valid date.", # Shown when invalid input format is given
-            },
-            # Custom error messages for the 'number_of_guests' field
-            'number_of_guests': {
-                'required': "Please enter number of guests.",  # Shown when no value is provided
-            }
+            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control', 
+                'min': '1',
+                'max': '20'}),
+            'special_requests': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
         }
 
 
@@ -49,6 +41,14 @@ class BookingForm(forms.ModelForm):
             required=True
         )
 
+        # Customise default "required" error messages for key fields
+        if 'date' in self.fields:
+            self.fields['date'].error_messages['required'] = "Please select a booking date."
+        if 'time' in self.fields:
+            self.fields['time'].error_messages['required'] = "Please select a time."
+        if 'number_of_guests' in self.fields:
+            self.fields['number_of_guests'].error_messages['required'] = "Please enter the number of guests."
+
         # Reorder fields to show: Date, Time, Number of Guests
         self.order_fields(['date', 'time', 'number_of_guests', 'special_requests'])
 
@@ -73,7 +73,7 @@ class BookingForm(forms.ModelForm):
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
         if guests is None:
-            raise forms.ValidationError("Please enter number of guests.")
+            raise forms.ValidationError("Please enter the number of guests.")
         if guests < 1:
             raise forms.ValidationError("Number of guests must be at least 1.")
         if guests > 20:  

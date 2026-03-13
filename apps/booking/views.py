@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Booking
 
+
 # View to create a new booking
 @login_required  # User must be logged in
 def create_booking(request):                       
@@ -16,46 +17,49 @@ def create_booking(request):
             # Success message
             messages.success(request, "Your booking has been successfully created!")
         
-            return redirect('my_bookings')       # Redirect to user's bookings page
-        
-        else:
-            # If form is not valid, display each field error using Django messages framework
-            for field, errors in form.errors.items():
-                for error in errors:
-                    messages.error(request, f"{field}: {error}")          
+            return redirect('my_bookings')       # Redirect to user's bookings page        
         
     else: 
         form = BookingForm(user=request.user)
     return render(request, 'booking/create_booking.html', {'form' : form})
 
 
-# View to list all bookings of the current user
+# View to list all bookings of the current user (staff use dashboard instead)
 @login_required
 def my_bookings(request):
+    if request.user.is_staff:
+        return redirect('staff_dashboard')
     bookings = Booking.objects.filter(customer=request.user).order_by('-date', '-time')
     return render(request, 'booking/my_bookings.html', {'bookings': bookings})
+
+
+def _get_booking_for_request(request, pk):
+    """Staff can view any booking; customers only their own."""
+    if request.user.is_staff:
+        return get_object_or_404(Booking, pk=pk)
+    return get_object_or_404(Booking, pk=pk, customer=request.user)
 
 
 # View to booking details
 @login_required
 def booking_detail(request, pk):
-    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
+    booking = _get_booking_for_request(request, pk)
     return render(request, 'booking/booking_detail.html', {'booking': booking})
 
 @login_required
 def update_booking(request, pk):
-    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
+    booking = _get_booking_for_request(request, pk)
 
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking, user=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, "Your booking has been updated successfully!")
-            return redirect('my_bookings')
+            return redirect('staff_dashboard' if request.user.is_staff else 'my_bookings')
         else:
             for field, errors in form.errors.items():
                 for error in errors:
-                    messages.error(request, f'{field}:{error}')
+                    messages.error(request, error)
     else:
         form = BookingForm(instance=booking, user=request.user)
 
@@ -63,11 +67,11 @@ def update_booking(request, pk):
 
 @login_required
 def delete_booking(request, pk):
-    booking = get_object_or_404(Booking, pk=pk, customer=request.user)
+    booking = _get_booking_for_request(request, pk)
 
     if request.method == "POST":
         booking.delete()
         messages.success(request, "Your booking has been deleted successfully.")
-        return redirect("my_bookings")
+        return redirect("staff_dashboard" if request.user.is_staff else "my_bookings")
 
     return render(request, "booking/delete_booking.html", {"booking": booking})
