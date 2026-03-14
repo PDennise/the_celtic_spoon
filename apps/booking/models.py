@@ -12,7 +12,8 @@ class Booking(models.Model):
         ('pending', 'Pending Approval'),
         ('approved', 'Approved'),          # Booking approved by staff
         ('declined', 'Declined'),          # Booking declined/rejected by staff
-        ('cancelled', 'Cancelled'),        # Booking cancelled by customer or staff
+        ('cancelled', 'Cancelled'),
+        # Booking cancelled by customer or staff
     )
     # Reference to the user who made the booking
     customer = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -15,7 +15,9 @@ def create_booking(request):
             # Don't save to DB yet, we need to assign the customer
             form.save()
             # Success message
-            messages.success(request, "Your booking has been successfully created!")
+            messages.success(
+                request, "Your booking has been successfully created!"
+                )
 
             return redirect('my_bookings')  # Redirect to user's bookings page
     else:
@@ -28,7 +30,8 @@ def create_booking(request):
 def my_bookings(request):
     if request.user.is_staff:
         return redirect('staff_dashboard')
-    bookings = Booking.objects.filter(customer=request.user).order_by('-date', '-time')
+    bookings = Booking.objects.filter(
+        customer=request.user).order_by('-date', '-time')
     return render(request, 'booking/my_bookings.html', {'bookings': bookings})
 
 
