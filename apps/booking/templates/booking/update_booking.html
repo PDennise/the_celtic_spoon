@@ -1,20 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} Edit Booking{% endblock %}
+{% block title %}Edit Booking{% endblock %}
 
 {% block content %}
+<div class="booking-page">
+    <div class="back-home">
+        <a href="{% url 'my_bookings' %}">
+            ← Back to My Bookings
+        </a>
+    </div>
 
-<h2>Edit Booking</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title mb-4 text-center">Edit Booking</h2>
 
-<form method="post">
-    {% csrf_token %}
-    
-    {{ form.as_p }}
-    
-    <button type="submit">Update Booking</button>
-</form>
+                    <form method="post" novalidate>
+                        {% csrf_token %}
 
-<a href="{% url 'my_bookings' %}">Back to My Bookings</a>
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
 
+                        {% for field in form %}
+                        <div class="mb-3">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                            <div class="text-danger small mt-1">
+                                {% for error in field.errors %}
+                                {{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+
+                        <div class="d-flex gap-2 justify-content-end mt-4">
+                            <a href="{% url 'my_bookings' %}" class="btn cancel">Cancel</a>
+                            <button type="submit" class="btn">Update Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
