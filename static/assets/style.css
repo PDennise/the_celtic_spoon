@@ -664,12 +664,27 @@ form .cancel:hover {
 }
 
 .booking-page {
-    background-color: linear-gradient(to right, #f8f5f0, #fdfcf9);;
+    background: linear-gradient(to right, #f8f5f0, #fdfcf9);
+    min-height: 100vh;
+    padding: 40px 20px 80px;
 }
 
 .col-md-6 {
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+/* Booking form cards (create / edit) */
+.booking-page .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.booking-page .card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #111;
 }
 
 /* =============================== */

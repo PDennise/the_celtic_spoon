@@ -49,6 +49,7 @@
                         </a>
                         <a href="{% url 'delete_booking' booking.pk %}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
+                    <td>{{ booking.special_requests|default:"—" }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
