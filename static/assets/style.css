@@ -671,3 +671,168 @@ form .cancel:hover {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+/* =============================== */
+/* DASHBOARD ADMIN PAGE */
+/* =============================== */
+
+#dashboard {
+    background: linear-gradient(to right, #f8f5f0, #fdfcf9);
+    padding: 60px 20px 50px;
+}
+
+#dashboard h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #111;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+/* Stat cards row */
+.dashboard-stats {
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 24px 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: #fff;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card h5 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.stat-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #111;
+    font-size: 2.25rem;
+    margin: 0;
+}
+
+.stat-card.stat-card-today {
+    border-left: 4px solid #D4AF37;
+}
+
+/* Dashboard section title */
+.dashboard-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.dashboard-section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #D4AF37;
+}
+
+/* Dashboard table */
+.dashboard-table-wrap {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.dashboard-table {
+    margin: 0;
+}
+
+.dashboard-table thead {
+    background: #111;
+    color: #fff;
+}
+
+.dashboard-table thead th {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    padding: 16px 20px;
+    border: none;
+    letter-spacing: 0.3px;
+}
+
+.dashboard-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-table tbody tr:hover {
+    background-color: #f8f5f0;
+}
+
+.dashboard-table tbody td {
+    padding: 14px 20px;
+    vertical-align: middle;
+    color: #222;
+}
+
+.dashboard-table .btn {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.dashboard-table .btn-primary,
+.dashboard-table .btn-success {
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+    color: #111;
+}
+
+.dashboard-table .btn-primary:hover,
+.dashboard-table .btn-success:hover {
+    background-color: #C6A75E;
+    border-color: #C6A75E;
+    color: #111;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    transform: scale(1.03);
+}
+
+.dashboard-table .btn-danger:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.dashboard-table .badge {
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+
+/* Dashboard empty state */
+.dashboard-empty {
+    background: #f8f5f0;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 2rem;
+    color: #666;
+    font-weight: 500;
+}
