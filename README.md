@@ -435,7 +435,7 @@ The Celtic Spoon booking system includes a plan for testing core functionality, 
 
 ---
 
-### Planned Manual Testing
+### Manual Testing
 
 - User registration and login with valid and invalid credentials
 - Table reservation creation, modification, and cancellation
@@ -544,3 +544,6 @@ This project was developed as part of the **Code Institute Full Stack Developmen
 
 - Restaurant images and icons are sourced from free-to-use stock images or placeholders
 - Wireframe images created by the developer as schematic representations
+
+### Author
+Deniz PANDAR
