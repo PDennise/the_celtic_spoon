@@ -13,11 +13,12 @@
 4. [Design & Wireframes](#4-design--wireframes)
 5. [Database Schema](#5-database-schema)
 6. [Features / Key Highlights](#6-features--key-highlights)
-7. [Security Features](#7-security-features)
-8. [Technologies Used](#8-technologies-used)
-9. [Testing Documentation](#9-testing-documentation)
-10. [Deployment](#10-deployment)
-11. [Credits](#11-credits)
+7. [CRUD Functionality](#7-crud-functionality)
+8. [Security Features](#8-security-features)
+9. [Technologies Used](#9-technologies-used)
+10. [Testing Documentation](#10-testing-documentation)
+11. [Deployment](#11-deployment)
+12. [Credits](#12-credits)
 
 ## 1. Project Overview
 
@@ -328,7 +329,28 @@ The Celtic Spoon booking system provides a reservation management system with ro
 
 ---
 
-## 7. Security Features
+
+## 7. CRUD Functionality
+
+The booking system implements full CRUD functionality:
+
+- Create
+
+Users can create a new booking through the reservation form.
+
+- Read
+
+Users can view their bookings on the "My Bookings" page.
+
+- Update
+
+Users can edit existing bookings to change date, time, or number of guests.
+
+- Delete
+
+Users can delete their bookings if they wish to cancel them.
+
+## 8. Security Features
 
 The Celtic Spoon booking system implements essential security measures using Django’s built-in protections and best practices.
 
@@ -368,7 +390,7 @@ The Celtic Spoon booking system implements essential security measures using Dja
 
 ---
 
-## 8. Technologies Used
+## 9. Technologies Used
 
 The project is built using modern web development technologies for both backend and frontend functionality.
 
@@ -407,7 +429,7 @@ The project is built using modern web development technologies for both backend 
 
 ---
 
-## 9. Testing Documentation
+## 10. Testing Documentation
 
 The Celtic Spoon booking system includes a plan for testing core functionality, form validation, and business logic for both customers and staff/admin users.
 
@@ -442,7 +464,7 @@ The Celtic Spoon booking system includes a plan for testing core functionality, 
 
 ---
 
-## 10. Deployment
+## 11. Deployment
 
 The Celtic Spoon project can be deployed to a cloud platform or run locally for development.
 
@@ -502,7 +524,7 @@ python manage.py collectstatic
 
 ---
 
-## 11. Credits / Acknowledgements
+## 12. Credits
 
 This project was developed as part of the **Code Institute Full Stack Development course**.
 
