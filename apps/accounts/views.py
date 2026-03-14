@@ -1,39 +1,38 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm # Built-in Django login form
-from .forms import ARegistrationForm      # Import your custom user registration form
-from django.contrib.auth import login, logout # Functions to log users in and out
-from django.contrib import messages         # Django's built-in messaging framework to show success or error messages to users
+from django.shortcuts import redirect, render
+from django.contrib.auth.forms import AuthenticationForm  # Built-in Django login form
+from django.contrib.auth import login, logout  # Functions to log users in and out
+from django.contrib import messages  # Django's built-in messaging framework
+from .forms import ARegistrationForm  # Custom user registration form
+
 
 # Create your views here.
 def register_view(request):
-    if request.method == 'POST':                    # Check if the form was submitted
-        form = ARegistrationForm(request.POST)      # Bind POST data to the form
-        if form.is_valid():                         # Validate the form data
-            user = form.save()                      # Save the new user to the database
-            login(request, user)                    # Log the user in immediately
+    if request.method == "POST":
+        form = ARegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
             messages.success(request, "Account created successfully!")
-            return redirect('/')                    # Redirect to the homepage after successful registration
-        else:
-            messages.error(request, "Please correct the errors below.")  
+            return redirect("/")
+        messages.error(request, "Please correct the errors below.")
     else:
-        form = ARegistrationForm()                  # Create an empty user registration form
-    return render(request, 'accounts/register.html', {'form' : form}) # Render the registration template with the form (either empty or with errors)
+        form = ARegistrationForm()
+    return render(request, "accounts/register.html", {"form": form})
 
 
 def login_view(request):
-    form = AuthenticationForm()                     # Create an empty login form for GET requests
-    if request.method == 'POST':                    # Check if the form has been submitted
-        form = AuthenticationForm(request, data=request.POST) # Bind POST data to the form
-        if form.is_valid():                         # Validate the form (check username and password)
-            user = form.get_user()                  # Get the authenticated user object
-            login(request, user)                    # Log the user in (start a session)
-            messages.success(request, "Logged in successfully!")  # add success message
-            return redirect('/')                 # Redirect to the homepage after successful login
-        else:
-            messages.error(request, "Invalid username or password")  # add error message
-    return render(request, 'accounts/login.html', {'form': form}) #  Render the login template with the form (empty or with errors)
+    form = AuthenticationForm()
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            messages.success(request, "Logged in successfully!")
+            return redirect("/")
+        messages.error(request, "Invalid username or password")
+    return render(request, "accounts/login.html", {"form": form})
 
 
 def logout_view(request):
-    logout(request)  # Log the user out (end the session)
-    return redirect('/')  # Redirect to the homepage after logout
+    logout(request)
+    return redirect("/")

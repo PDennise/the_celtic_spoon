@@ -4,11 +4,11 @@ from apps.booking.models import Booking
 from django.contrib import messages
 from django.utils import timezone
 
+
 # Only staff users can access
 @user_passes_test(lambda u: u.is_staff)
 def staff_dashboard(request):
-    bookings = Booking.objects.all().order_by('-date') # get all bookings
-
+    bookings = Booking.objects.all().order_by('-date')
     today = timezone.now().date()
 
     stats = {
@@ -26,6 +26,7 @@ def staff_dashboard(request):
 
     return render(request, 'staff_dashboard.html', context)
 
+
 @user_passes_test(lambda u: u.is_staff)
 def approve_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
@@ -33,6 +34,7 @@ def approve_booking(request, booking_id):
     booking.save()
     messages.success(request, f"Booking #{booking.id} approved.")
     return redirect('staff_dashboard')
+
 
 @user_passes_test(lambda u: u.is_staff)
 def decline_booking(request, booking_id):
@@ -42,6 +44,7 @@ def decline_booking(request, booking_id):
     messages.success(request, f"Booking #{booking.id} declined.")
     return redirect('staff_dashboard')
 
+
 @user_passes_test(lambda u: u.is_staff)
 def complete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
@@ -49,6 +52,7 @@ def complete_booking(request, booking_id):
     booking.save()
     messages.success(request, f"Booking #{booking_id} marked as completed.")
     return redirect('staff_dashboard')
+
 
 def home_view(request):
     return render(request, 'home.html')

@@ -3,21 +3,28 @@ from django.core.exceptions import ValidationError
 from .models import Booking
 from datetime import date, time, datetime
 
+
 # Frontend form for users to make a booking
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         # We'll add the 'time' field manually in __init__
-        fields = ['date', 'number_of_guests', 'special_requests']  # Fields user can fill
+        fields = ['date', 'number_of_guests', 'special_requests']
 
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),   # HTML5 date picker
-            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control', 
-                'min': '1',
-                'max': '20'}),
-            'special_requests': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'date': forms.DateInput(
+                attrs={'type': 'date', 'class': 'form-control'}
+            ),
+            'number_of_guests': forms.NumberInput(
+                attrs={
+                    'class': 'form-control',
+                    'min': '1',
+                    'max': '20'}
+            ),
+            'special_requests': forms.Textarea(
+                attrs={'class': 'form-control', 'rows': 3}
+                ),
         }
-
 
     def __init__(self, *args, **kwargs):
         # to access request.user inside the form
@@ -32,7 +39,6 @@ class BookingForm(forms.ModelForm):
                 time_str = f"{hour:02d}:{minute:02d}"
                 time_display = f"{hour:02d}:{minute:02d}"
                 time_choices.append((time_str, time_display))
-        
         # Add time field as a ChoiceField (dropdown)
         self.fields['time'] = forms.ChoiceField(
             choices=time_choices,
@@ -43,43 +49,55 @@ class BookingForm(forms.ModelForm):
 
         # Customise default "required" error messages for key fields
         if 'date' in self.fields:
-            self.fields['date'].error_messages['required'] = "Please select a booking date."
+            self.fields['date'].error_messages['required'] = (
+                "Please select a booking date."
+            )
         if 'time' in self.fields:
-            self.fields['time'].error_messages['required'] = "Please select a time."
+            self.fields['time'].error_messages['required'] = (
+                "Please select a time."
+            )
         if 'number_of_guests' in self.fields:
-            self.fields['number_of_guests'].error_messages['required'] = "Please enter the number of guests."
-
+            self.fields['number_of_guests'].error_messages['required'] = (
+                "Please enter the number of guests."
+            )
         # Reorder fields to show: Date, Time, Number of Guests
-        self.order_fields(['date', 'time', 'number_of_guests', 'special_requests'])
+        self.order_fields(
+            ['date',
+             'time',
+             'number_of_guests',
+             'special_requests']
+        )
 
-    
     def save(self, commit=True):
         """Override save to set the time field from cleaned_data"""
         instance = super().save(commit=False)
-        
         # Set time from cleaned_data (converted in clean_time())
         if 'time' in self.cleaned_data:
             instance.time = self.cleaned_data['time']
-        
         # Set customer if available
         if self.user:
             instance.customer = self.user
-        
+
         if commit:
             instance.save()
-        
+
         return instance
 
     def clean_number_of_guests(self):
         guests = self.cleaned_data.get('number_of_guests')
         if guests is None:
-            raise forms.ValidationError("Please enter the number of guests.")
+            raise forms.ValidationError(
+                "Please enter the number of guests."
+                )
         if guests < 1:
-            raise forms.ValidationError("Number of guests must be at least 1.")
-        if guests > 20:  
-            raise forms.ValidationError("We cannot accommodate more than 20 guests per booking.")
+            raise forms.ValidationError(
+                "Number of guests must be at least 1."
+                )
+        if guests > 20:
+            raise forms.ValidationError(
+                "We cannot accommodate more than 20 guests per booking."
+                )
         return guests
-
 
     def clean_time(self):
         """Convert time string from dropdown to time object"""
@@ -90,34 +108,42 @@ class BookingForm(forms.ModelForm):
         # Convert string "HH:MM" to time object
         hour, minute = map(int, time_str.split(':'))
         time_value = time(hour, minute)
-        
+
         # Check capacity if date is provided
         date_value = self.cleaned_data.get('date')
         if date_value:
             max_bookings_per_slot = 20
-            
+
             existing_bookings = Booking.objects.filter(
                 date=date_value,
                 time=time_value
             ).count()
-            
+
             if existing_bookings >= max_bookings_per_slot:
                 raise forms.ValidationError(
-                    f"Sorry, {time_value.strftime('%H:%M')} on {date_value} is fully booked. "
-                    f"Please choose another time."
+                    (
+                        f"Sorry, {time_value.strftime('%H:%M')} on"
+                        f"{date_value} is fully booked."
+                        "Please choose another time."
+                    )
                 )
-        
+
         return time_value
 
-
     def clean_date(self):
-        date_value = self.cleaned_data.get('date')
+        date_value = self.cleaned_data.get(
+            'date'
+            )
         if date_value is None:
-            raise ValidationError("Please enter a valid date")
+            raise ValidationError(
+                "Please enter a valid date"
+                )
         if date_value < date.today():
-            raise ValidationError("You cannot select a past date.")
+            raise ValidationError(
+                "You cannot select a past date."
+                )
         return date_value
-    
+
     def clean(self):
         cleaned_data = super().clean()
         booking_date = cleaned_data.get('date')
@@ -125,14 +151,23 @@ class BookingForm(forms.ModelForm):
 
         if booking_date and booking_time and self.user:
             # Combine date and time to a datetime object
-            booking_datetime = datetime.combine(booking_date, booking_time)
-            
+            booking_datetime = datetime.combine(
+                booking_date,
+                booking_time)
+
             # Check if the booking datetime is in the past
             if booking_datetime < datetime.now():
-                raise ValidationError("You cannot book for a past date or time.")
-
+                raise ValidationError(
+                    "You cannot book for a past date or time."
+                    )
             # Check if user already has a booking at this date and time
-            if Booking.objects.filter(customer=self.user, date=booking_date, time=booking_time).exists():
-                raise ValidationError("You already have a booking at this date and time.")
+            if Booking.objects.filter(
+                customer=self.user,
+                date=booking_date,
+                time=booking_time
+            ).exists():
+                raise ValidationError(
+                        "You already have a booking at this date and time."
+                    )
 
         return cleaned_data

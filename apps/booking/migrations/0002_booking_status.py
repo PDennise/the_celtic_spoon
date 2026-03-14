@@ -13,6 +13,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='booking',
             name='status',
-            field=models.CharField(choices=[('pending', 'Pending Approval'), ('approved', 'Approved'), ('declined', 'Declined'), ('cancelled', 'Cancelled')], default='pending', max_length=10),
+            field=models.CharField(choices=[
+                ('pending', 'Pending Approval'),
+                ('approved', 'Approved'),
+                ('declined', 'Declined'),
+                ('cancelled', 'Cancelled')],
+                default='pending', max_length=10),
         ),
     ]
