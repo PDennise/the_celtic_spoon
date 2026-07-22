@@ -33,9 +33,12 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '0.0.0.0',
-    '.herokuapp.com',
-    'the-celtic-spoon-fd61489fc4df.herokuapp.com'
+    'https://the-celtic-spoon.onrender.com'
     ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://the-celtic-spoon.onrender.com'
+]
 
 # Application definition
 
